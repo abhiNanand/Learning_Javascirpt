@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <div id="container">
+        A text node
+        <p>Some paragraph</p>
+        <!-- This is a comment -->
+        <span>Span Element</span>
+        
+      </div>
+
+
+
+</body>
+
+
+
+
+<script>
+
+
+    const a= document.getElementById('container');
+ 
+console.log(1,a.children);
+console.log(11,a.children);
+console.log(2,a.childNodes);
+
+
+
+
+const container = document.getElementById('container');
+
+console.log("FIRST CHILD:", container.firstChild);
+console.log("LAST CHILD:", container.lastChild);
+console.log("FIRST ELEMENT: ", container.firstElementChild);
+console.log("LAST ELEMENT:", container.lastElementChild);
+</script>
+<!-- Note how firstChild returns the first text node but the firstElementChild returns the first paragraph instead. This means it ignored the text node which comes before the paragraph.
+
+And also note how the lastChild returns a text node – even though from the markup, it looks like there's nothing after the span. That is because the lastChild property considers the linebreak/whitespace between the closing tag of the span and the closing tag of the div elements as a node.
+
+That's why it's generally safer to stick to firstElementChild and lastElementChild. -->
+
+
+</html>

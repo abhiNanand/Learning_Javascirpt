@@ -1,0 +1,166 @@
+Function: A set of statements that performs a task.
+
+
+
+parameter: variable that are used on funciton declaration.
+argument : are the actual value of data that are passed to 
+function when it is called.
+
+
+When you pass an array as a parameter, if the function changes any of the array's values, 
+that change is visible outside the function, 
+
+Example 1:
+
+function myFunc (theObject)
+{
+    theObject.make="abhishek anand";
+}
+
+
+const myCar={
+    make:"honda",
+    model:"accord",
+    year:"1998",
+};
+
+console.log(myCar.make);
+myFunc(myCar);
+console.log(myCar.make);
+
+________________________________________________________________________________
+This is the example of an anonymous function. it does not have a name
+
+Example 2
+
+const getRectArea = function(width,height)
+ {
+    return width * height;
+ };
+
+ console.log(getRectArea(3,4));
+
+
+________________________________________________________________________________
+
+A method is a function that is a property of an object.
+
+________________________________________________________________________________
+
+//factorial of number n using recursion
+
+  function fact(number)
+  {
+
+
+    if(number==1 || number==0)
+    return 1;
+    
+    return number * fact(number-1);
+
+  }
+  console.log(fact(6));
+  –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+function can be also do hoisiting
+we call funciton at top and declare at below.
+
+________________________________________________________________________________
+
+Function hoisting only works with function declarations — not with function expressions.
+console.log(square(5)); // ReferenceError: Cannot access 'square' before initialization
+const square = function (n) {
+  return n * n;
+};
+
+What is function expression?
+A function expression in javascript is a way to define a funciton by assiging it to 
+a variable.
+
+=====================================================================================
+
+Basic Topics
+Function Declaration
+Function Expression
+Arrow Functions
+Parameters and Arguments
+Return Statement
+Intermediate Topics
+Default Parameters
+Rest Parameters
+Anonymous Functions
+Callback Functions
+Immediately Invoked Function Expressions (IIFE)
+Advanced Topics
+Closures
+Higher-Order Functions
+Function Currying
+Recursion
+this Keyword
+bind(), call(), and apply()
+Async Functions (async/await)
+Generator Functions (function*)
+Debouncing and Throttling
+Function Composition
+Optimization and Patterns
+Pure Functions
+Memoization
+Partial Application
+Event Handling with Functions
+Error Handling in Functions
+
+________________________________________________________________________________
+
+let x = function y()
+{
+    console.log("my name is abhishek anand");
+}
+
+
+y();
+_________________________________________________
+
+Nested function and closures.
+A closure is an expression (most commonly a function ) that can have free variable together
+with an enviroment that binds those variables . 
+
+Note
+Variables created without a declaration keyword (var, let, or const) are always global, even 
+if they are created inside a function.
+
+_____________________________________________________________________________________
+
+
+ const add = (function () {
+        let counter = 0; // Private variable
+        return function () {
+            counter += 1;
+            return counter; // Returns the updated counter value
+        };
+    })();
+
+    // Using the closure
+    console.log(add()); // Output: 1
+    console.log(add()); // Output: 2
+    console.log(add()); // Output: 3
+
+
+
+    function makeCounters() {
+    let count = 0;
+    return {
+        increment: function () {
+            count++;
+            console.log(count);
+        },
+        decrement: function () {
+            count--;
+            console.log(count);
+        },
+    };
+}
+
+const counters = makeCounters();
+counters.increment(); // Logs: 1
+counters.decrement(); // Logs: 0
+counters.increment(); // Logs: 1

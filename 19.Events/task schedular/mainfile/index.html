@@ -1,0 +1,81 @@
+<!-- 
+Question: Build a Dynamic Task Manager
+Create a web-based Task Manager using JavaScript. The application should allow users to:
+
+Add Tasks:
+
+Input a task name in a text field and click an "Add Task" button to add the task to a task list.
+If the input field is empty, display an error message (e.g., "Task cannot be empty").
+Display Tasks:
+
+Dynamically show the list of tasks below the input field.
+Mark as Completed:
+
+Add a checkbox next to each task. When the checkbox is checked, the task's text should be struck through to indicate completion.
+Delete Tasks:
+
+Add a "Delete" button next to each task to remove it from the list.
+Filter Tasks:
+
+Add a dropdown to filter tasks:
+Show All
+Show Completed
+Show Pending
+Clear All Tasks:
+
+Add a "Clear All" button to delete all tasks from the list after confirming with the user (e.g., via a confirm() dialog).
+Persist Data:
+
+-->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Todo List</title>
+       <link rel="stylesheet" href="todo.css">
+       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<!--
+
+-add task delete task
+-enter press hone pr v task add hona chaheye
+-local storage me save hona chaheye
+-drop box hona chaheye completed task and not completed task ka
+ option select karne pr vo task show hona chaheye.
+-har task ke sath me check button hona chaheye jo show kare ke task complete hai ki nhi.
+-jb tick kare tho task pr cross ho jana chaheye
+
+-->
+
+    <div class="taskschedular">
+        <h1>Task Schedular</h1>
+    </div>
+    <div class="addTask">
+        <!-- input  and add task button-->
+
+        <form >
+            <label > Task Name:</label>
+            <input type="text" id="text" placeholder="enter tasks"> 
+            <select id="taskStatus">
+                <option value="showall" id="showall">showall</option>
+                <option value="completed" id="completed">Completed</option>
+                <option value="nocompleted" id="notcompleted">Not completed</option>
+            </select>
+        </form>
+
+        
+
+        <button  class="btn1" onclick="addTodo();">Add Task</button>
+    </div>
+    <h1 class="heading">Tasks</h1>
+    <div class="showTask">
+    </div>
+    <script src="todo.js"></script>
+</body>
+
+
+ 
+</html>
+
+ 

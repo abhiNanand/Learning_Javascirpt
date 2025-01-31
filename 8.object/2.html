@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     
+    <title>Document</title>
+</head>
+<body>
+     <script>
+
+ 
+//creatign object with new ;
+
+function Car(make, model,year)
+{
+    this.make=make;
+    this.model = model;
+    this.year=year;
+}
+const car1 = new Car('Eagle', 'Talon TSi', 1993);
+
+console.log(car1);
+
+
+ /* You can add properties to a previously 
+ defined object dynamically at any time in JavaScript. 
+ example*/
+
+ function Person(name , age, sex)
+ {
+   this.name=name;
+   this.age=age;
+   this.sex=sex;
+ }
+//instantiate two new person as follows
+ const rambo=new Person("Rambo", 33, "M");
+ const ken = new Person("Ken Jones", 39, "M");
+
+ // then , you can rewrite the defination of Car to include an owner property that takes a Person as object as follows:
+
+ function Car(make, model, year, owner)
+ {
+     this.make=make;
+    this.model=model; 
+   this.year=year;
+  this.owner=owner;
+ }
+
+ const car11 = new Car("Eagle", "Talon TSi", 1993, rambo);
+ const car22= new Car("Nissan", "300ZX", 1992,ken);
+ //car2.owner.name       access owner name of car 2
+
+ // we can any time add a property
+ car11.color='red';
+
+ //You can also use the class syntax instead of the function syntax to define a constructor function.
+
+ // object can be also created using object.create() method. 
+
+ console.log("object can be also crated using object.created method");
+
+ const Animal= {
+    type:"Invertebrates",
+    //method which will display the type of Animal
+    displayType()
+    {
+        console.log(this.type);
+    },
+ };
+
+ //create new animal type animal1
+ const animal1= Object.create(Animal);
+ animal1.displayType(); 
+
+ //create new animal type fish
+
+ const fish=Object.create(Animal);
+ fish.type="Fishes";
+ fish.displayType();
+
+
+ //in this code Animal animal1 fish all are object but Animal is base object and fish and animal1 is derived object.
+
+
+ //we can access the properitese in two ways dot notation and bracket notation.
+console.log(fish.type);
+console.log(fish["type"]);
+console.log("");console.log("");
+//we can't use dot notation to  access a property whose name is not a valid javascirpt identifier.use bracket notation. 
+console.log("creating object with not valid identifer of javascript");
+
+
+const myObj= {};
+const str="mystring";
+const rand=Math.random();
+const anotherObj={};
+
+//create additional properites on myObj
+
+myObj.type= "Dot syntax for a key named type";
+//all these can be accessed using bracket notation . 
+myObj["date created"]="this key had space";
+myObj[str]="this key is a variable str";
+myObj[rand]="A random number is the key here";
+myObj[anotherObj]="This key is object anotherOjb";
+myObj[""]="this is an empty string";
+
+console.log(myObj);
+
+console.log(myObj.str);  //undefined   does not look for the value of the variable str (which is "mystring").
+//Since there is no property in myObj literally named "str", the result is //undefined.
+console.log(myObj.mystring);  //its working
+console.log(myObj[str]);//its working
+console.log(myObj["str"]);//undefined
+
+
+console.log(myObj.rand);//undefined
+console.log(myObj[rand]);//working
+
+
+//Enumerate means to list out items systematically, often one by one, in a way that they can be individually identified. 
+
+
+// there are three native ways to list/traverse object properties.
+
+//1. for ...in: traverse all of the enumerable string properties.
+//2. object.keys()- return an array with only enumerable own string proprety names
+//3. Object.getOwnPropertyNames()-returns an array containing all the own string property names in the object.
+console.log("");console.log("");
+console.log("enumerating object properties");
+console.log(`using for ... in `);
+
+for(i in myObj)
+{
+    console.log(`myObj.${i}= ${myObj[i]}` );
+}
+
+ 
+
+console.log("");console.log("");
+
+console.log(`using object.keys()`);
+
+const keys=Object.keys(myObj);  //return an array to keys with key name;
+console.log(keys);
+
+keys.forEach((key)=>
+console.log(`${key}: ${myObj[key]}`));
+
+
+
+console.log("");console.log("");
+console.log("by using object.getOwnPropertyNames");
+
+const PropertyName = Object.getOwnPropertyNames(myObj);
+console.log(PropertyName);
+//isko v same for loops use krke print kar saktey hai just like we done in object.key().
+
+console.log("");console.log("");
+
+console.log("Deleting Properties");
+
+delete myObj.mystring;
+console.log("mysting" in myObj);//false
+
+
+//Method: A method is a function associated with an object, or , put differently, a method is a property of an object that is a funciton.
+
+//JavaScript has a special keyword, this, that you can use within a method to refer to the current object.
+
+
+//Definning getter and setter
+// a getter is a function associated with a property  that gets the value of a specific property. 
+//A setter is a function  accociated with a property thats set the value of a specific property
+
+
+/*
+
+Getters and setters can be either
+
+defined within object initializers, or
+added later to any existing object.
+Within object initializers, getters and setters are defined like regular methods, but prefixed with the keywords get or set. The getter method must not expect a parameter, while the setter method expects exactly one parameter (the new value to set). For instance:
+
+js
+Copy to Clipboard
+const myObj = {
+  a: 7,
+  get b() {
+    return this.a + 1;
+  },
+  set c(x) {
+    this.a = x / 2;
+  },
+};
+
+console.log(myObj.a); // 7
+console.log(myObj.b); // 8, returned from the get b() method
+myObj.c = 50; // Calls the set c(x) method
+console.log(myObj.a); // 25
+
+
+
+*/
+
+
+//Comparing Objects: in javascript object are reference type. two distict objects are never equal, evern if they have the same property.  
+     </script>
+</body>
+</html>

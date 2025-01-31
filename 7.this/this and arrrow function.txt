@@ -1,0 +1,286 @@
+Arrow functions and 'this'
+Arrow functions behave differently than regular functions when it comes to 'this' binding. In an arrow function, 'this' always refers to the value of 'this' in the enclosing lexical scope, regardless of how it is called.
+
+12345678910
+const person = {
+    name: 'John',
+    greet: function() {
+        const message = () => console.log(`Hello, my name is ${this.name}`);
+        message();
+    }
+}
+
+person
+
+
+
+Run
+In the above example, we define an object 'person' with a method 'greet'. Inside the method, we define an arrow function 'message' that logs a message using the 'this' keyword. Since the arrow function is defined inside the method, it captures the value of 'this' from the enclosing lexical scope, which is the object 'person'.
+ 
+   In JavaScript, the this keyword behaves differently in arrow functions compared to regular functions.
+
+Regular Function:
+In a regular function, this refers to the object that is calling the function. If the function is called from an object, this refers to that object.
+
+Example:
+
+javascript
+Copy
+Edit
+const person = {
+  name: "John",
+  greet: function() {
+    console.log(this.name); // 'this' refers to 'person' object
+  }
+};
+
+person.greet(); // Output: John
+
+Here, this refers to the person object because greet is called from person.
+
+Arrow Function:
+In an arrow function, this does not have its own binding. Instead, it inherits this from the surrounding context where the arrow function is defined. It does not change based on how the function is called.
+
+const person={
+    name: "jhon",
+    greet:()=>{
+        console.log(`this ${this.name}`);  //undefined
+    }
+};
+
+console.log("without this function");
+
+const person1 =
+{
+    name:"abhishekanand",
+    greet: function()
+    {
+        console.log(this.name);
+    }
+};
+person1.greet();
+
+
+Key Difference:
+In regular functions, this depends on how the function is called.
+In arrow functions, this is lexically inherited from the surrounding scope (where the function is defined).
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+
+
+const obj = { 
+  id: '42',
+  whoCalledMe:()=> {
+    console.log('Caller is',this);  //window
+  }
+};
+
+obj.whoCalledMe();
+
+
+const objj = { 
+  id: '42',
+  whoCalledMe:function() {
+    console.log('Caller is',this);// whoCalledMe
+  }
+};
+
+objj.whoCalledMe();
+
+
+
+
+
+questions
+
+
+Here are the tricky `this` and arrow function questions with their **answers inside the code comments**:
+
+---
+
+### **1. `this` in Arrow Function vs Regular Function**
+
+```javascript
+const obj = {
+  name: 'Alice',
+  greetArrow: () => {
+    console.log(this.name); // undefined (Arrow functions inherit 'this' from the outer scope, which is likely the global object)
+  },
+  greetRegular: function() {
+    console.log(this.name); // 'Alice' (Regular function binds 'this' to the object 'obj')
+  }
+};
+
+obj.greetArrow();   // undefined
+obj.greetRegular(); // 'Alice'
+```
+
+---
+
+### **2. `this` and Event Handlers**
+
+```javascript
+const obj = {
+  name: 'John',
+  greet: function() {
+    setTimeout(function() {
+      console.log(this.name); // undefined (Regular function inside setTimeout binds 'this' to the global object)
+    }, 1000);
+  }
+};
+
+obj.greet(); // undefined
+```
+
+---
+
+### **3. Arrow Functions and `this` in Nested Functions**
+
+```javascript
+const obj = {
+  name: 'John',
+  greet: function() {
+    console.log(this.name); // 'John' (Regular function, 'this' refers to 'obj')
+    
+    const innerFunc = () => {
+      console.log(this.name); // 'John' (Arrow function lexically binds 'this' from the surrounding context, which is 'greet')
+    };
+
+    innerFunc();
+  }
+};
+
+obj.greet(); // 'John' (first) and 'John' (second)
+```
+
+---
+
+### **4. `this` in Object Methods with `call()` and `apply()`**
+
+```javascript
+const person = {
+  name: 'Alice',
+  greet: function() {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+};
+
+const anotherPerson = {
+  name: 'Bob'
+};
+
+person.greet();  // 'Hello, my name is Alice' (Regular function, 'this' refers to 'person')
+person.greet.call(anotherPerson);  // 'Hello, my name is Bob' (call() sets 'this' to 'anotherPerson')
+```
+
+---
+
+### **5. `this` and Object Creation**
+
+```javascript
+function Person(name) {
+  this.name = name;
+  this.greet = () => {
+    console.log(`Hello, my name is ${this.name}`);
+  };
+}
+
+const person = new Person('Eve');
+const greet = person.greet;
+greet();  // 'Hello, my name is Eve' (Arrow function, 'this' is lexically bound to 'person')
+```
+
+---
+
+### **6. `this` and Arrow Function Inside a Method**
+
+```javascript
+const obj = {
+  name: 'John',
+  greet: function() {
+    setTimeout(() => {
+      console.log(this.name); // 'John' (Arrow function retains 'this' from the surrounding context, which is 'obj')
+    }, 1000);
+  }
+};
+
+obj.greet(); // 'John'
+```
+
+---
+
+### **7. Arrow Function with `this` Inside a Loop**
+
+```javascript
+const obj = {
+  name: 'Alice',
+  greet: function() {
+    for (let i = 0; i < 3; i++) {
+      setTimeout(() => {
+        console.log(this.name); // 'Alice' (Arrow function binds 'this' lexically to 'obj')
+      }, 1000);
+    }
+  }
+};
+
+obj.greet(); // 'Alice' (3 times)
+```
+
+---
+
+### **8. `this` in Constructor Function**
+
+```javascript
+function MyObject() {
+  this.value = 10;
+  this.increment = () => {
+    this.value++;
+    console.log(this.value);
+  };
+}
+
+const obj = new MyObject();
+obj.increment(); // 11 (Arrow function keeps 'this' bound to 'obj')
+const incrementFunc = obj.increment;
+incrementFunc(); // 12 (Arrow function still binds 'this' to 'obj')
+```
+
+---
+
+### **9. Arrow Function and `this` in a Callback**
+
+```javascript
+const obj = {
+  name: 'Bob',
+  greet: function() {
+    setTimeout(() => {
+      console.log(this.name); // 'Bob' (Arrow function inherits 'this' from the surrounding context, which is 'obj')
+    }, 500);
+  }
+};
+
+const greet = obj.greet;
+greet();  // 'Bob' (Arrow function still binds 'this' to 'obj')
+```
+
+---
+
+### **Takeaways:**
+- Arrow functions **lexically bind** `this` from their surrounding context, while regular functions are dynamically bound based on how they are called.
+- Understanding the difference in how `this` works in arrow functions and regular functions is key to mastering JavaScript's behavior in various scenarios like callbacks, event handlers, and object methods.
+
+</script>
+</html>

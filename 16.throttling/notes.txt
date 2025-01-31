@@ -1,0 +1,40 @@
+Throttling: is a technique used to limit the rate at which a function is called. Throttling transforms a function such that it can be called only once in a specific interval of time.
+
+function fun() {
+    console.log('This is a function')
+}
+We want to modify this function so that it can only be called once in 500ms. So, throttling will take fun() as an input, and return a modified (throttled) function throttledFun() that can only be executed 500ms after the previous function was executed.
+
+When you call throttledFun() multiple times within 500ms, fun() will only be executed the first time. You will have to wait 500ms before fun() can be executed again. This happens after every subsequent function call. Thus, fun() can only be called once every 500ms.
+
+How to Implement Throttling in JavaScript
+Let's first understand what we want to achieve with throttling:
+
+Call the function immediately the first time.
+
+After each call, prevent the function from being called again for a certain time period.
+
+Once that time period has passed, the function can be called again.
+
+To do all this, let's first create a helper function that will return a throttled function:
+
+function throttle(func, delay) {
+      return () => {}   // return throttled function
+}
+For any use cases, the throttled function will be used instead of the original fun().
+
+Let's start by simply calling the function like this:
+
+function throttle(func, delay) {
+  return () => {
+        func()
+    }
+}
+Once the function is called, we want to block it from being called again for a certain time period delay. Once the time has passed, we want to unblock the function. We can achieve this behaviour using setTimeout.
+
+For now, let's keep the setTimeout empty. You'll understand how it works in a minute.
+
+setTimeout(() => {}, delay)
+
+
+++++++++++++====================+++++++++++++===============

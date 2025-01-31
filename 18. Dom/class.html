@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <div class="first">
+
+
+ <div class="second">
+
+fellow
+    <p class="third"  >hello</p>
+ </div>
+
+    </div>
+
+    <script>
+ 
+const a=document.getElementsByClassName('first');
+console.log(1,a[0]);
+
+console.log(2, a[0].className)
+console.log(3, a[0].classList)
+
+
+const b= document.querySelector('.second');
+const c=document.querySelector('.third');
+
+console.log(4,b.classList);
+console.log(5,c.classList);
+console.log(6,c)
+
+
+//adding classes with classList.add()
+
+c.classList.add('fav','tasty');
+console.log(c.classList);
+
+console.log(c);
+    </script>
+</body>
+</html>

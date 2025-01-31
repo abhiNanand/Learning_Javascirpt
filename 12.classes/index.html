@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>classes</title>
+
+</head>
+<body>
+    
+</body>
+
+
+<script>
+
+    console.log("Creating class");
+
+    class Myclass
+    {
+        //constructor
+
+        constructor()
+        {
+//constructor body
+        }
+
+        //instance field
+        myField="foo";
+
+        //instance method
+        myMethod()
+        {
+//myMethod body
+        }
+
+        static myStaticMethod()
+        {
+            //myStaticMethod body
+        }
+
+        //static block
+        static{
+            //Static initialization code
+        }
+        //fields, methods, static fields, and static methods all have
+        
+        //private forms
+        #myPrivateField="bar"
+    }
+
+
+  /*  Constructing a class
+       After a class has been declared, you can create instances of it using the new operator.
+
+*/
+const myInstance= new Myclass();
+console.log(myInstance.myField);
+myInstance.myMethod();
+
+
+
+
+
+
+
+</script>
+
+</html>

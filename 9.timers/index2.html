@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+
+<script>
+
+//Here’s a simple setTimeout call that should fire after half a second, but it won’t: pahely loop chalega fir setTimeout wlaal print hoga
+
+setTimeout(
+
+()=>console.log("hello after .5 second"), 500
+);
+
+for(let i=0;i<100000;i++)
+{
+    console.log(i);
+}
+
+</script>
+
+</html>

@@ -1,0 +1,33 @@
+inheritance, prototype, includes ke bare me padho. reduce ke bare me padho,
+
+
+objects methods kuch baki hai.
+class baki hai.
+
+
+  , garbage collection
+
+async function* expression
+
+
+throtling
+
+fetch
+
+promises ka function karna hai sare topics ka questions karna hia.
+
+call, bind, apply
+
+json
+
+operators
+
+modules. 
+
+
+
+
+
+
+
+ 

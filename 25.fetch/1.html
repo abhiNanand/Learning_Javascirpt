@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <!--
+    
+Fetch and Display JSON Data
+Write a function that fetches data from the following API and logs it to the console.
+API: https://jsonplaceholder.typicode.com/posts/1
+Expected Output (JSON):
+
+json
+Copy
+Edit
+{
+  "userId": 1,
+  "id": 1,
+  "title": "Sample title",
+  "body": "Sample body text"
+}
+➡ Bonus: Display the title and body on a webpage.
+
+
+    -->
+
+    <script>
+
+
+// fetch('https://jsonplaceholder.typicode.com/posts/1')
+// .then((result)=>console.log(result));
+
+
+function fetchData()
+{
+
+
+ let a=   fetch('https://jsonplaceholder.typicode.com/posts/1').then((result)=>result.json()).then((result)=>{
+ console.log(result);
+ 
+    
+ });
+    //{userId: 1, id: 1, title: 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit', body: 'quia et suscipit\nsuscipit recusandae consequuntur …strum rerum est autem sunt rem eveniet architecto'}
+
+    //console.log("hello",a); fetch returns promise.
+
+    fetch('https://jsonplaceholder.typicode.com/posts/1').then((result)=>result.json()).then((result)=>console.log(JSON.stringify(result)));
+
+    // {"userId":1,"id":1,"title":"sunt aut facere repellat provident occaecati excepturi optio reprehenderit","body":"quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"}
+
+
+    fetch('https://jsonplaceholder.typicode.com/posts/1').then((result)=>console.log(result));
+    
+
+
+
+}
+
+
+fetchData();
+
+
+    </script>
+
+</body>
+</html>

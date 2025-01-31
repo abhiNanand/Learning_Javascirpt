@@ -1,0 +1,15 @@
+
+// javascript modules is way to organize and reuse code by encapsulating it into seperate files.  it provide an strucutre way to manage dependencies and maintain code clarity in larger projects.
+
+Modules are the peice of codes that are encapsulated in seperate files.
+Key Benefits:
+Reusability: Write once, use it anywhere.
+Encapsulation: Prevent polluting the global namespace.
+Maintainability: Break large codebases into smaller, manageable pieces.
+Dependency Management: Control what parts of a module are shared and accessible.
+=========================================================================================================================================================
+ https://www.digitalocean.com/community/tutorials/understanding-modules-and-import-and-export-statements-in-javascript
+
+
+ A module is a bundle of code that acts as an interface to provide functionality for other modules to use, as well as being able to rely on the functionality of other modules.
+A module exports to provide code and imports to use other code. Modules are useful because they allow developers to reuse code, they provide a stable, consistent interface that many developers can use, and they do not pollute the global namespace.

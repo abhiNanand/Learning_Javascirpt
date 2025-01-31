@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+
+
+
+
+
+<script>
+
+//currrying is the process of converting a function that takes multiple arguments into a series of functions that each take a single argument. for example, a funciton f(a,b,c) can be transformed into f(a)(b)(c)
+
+
+
+
+function curryAdd(a)
+{
+
+    return function(b)
+    {
+        return function(c)
+        {
+            return a*b*c;
+        }
+    }
+}
+
+
+
+console.log(curryAdd(1)(2)(3));
+
+
+//using arrow function
+const multiply = (a)=>(b)=>(c)=>a*b*c;
+console.log(multiply(8)(7)(9));
+
+
+//Add unlimited numbers using currying: Create a curried function that allows adding any number of arguments:
+
+ 
+add(1)(2)(3)(4)(); // 10
+add(5)(10)();   
+
+
+function add(a) {
+    let sum = a;
+
+    function inner(b) {
+        if (b === undefined) return sum; // When no argument is provided, return the sum
+        sum += b; // Add the argument to the current sum
+        return inner; // Return the inner function for further calls
+    }
+
+    return inner;
+}
+
+// Example usage
+console.log(add(1)(2)(3)(4)()); // 10
+console.log(add(5)(10)());      // 15
+
+</script>
+
+
+
+
+
+
+
+
+
+</html>

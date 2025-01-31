@@ -1,0 +1,34 @@
+Try-Catch Blocks: Error Handling : most basic strucuture used for error handling in js. 
+codes likely to cause error in try block.
+these error are caught in catch block . 
+
+try
+{
+    let x=y+10;
+}
+
+catch(error)
+{
+    console.log("error)
+}
+
+
+Throwing Errors and Using Throw
+
+we use throw statement in javascript to raise and handle an error under certain conditions. when an error occurs, the program flow automatically returns to the nearest try-catch block or above where it was called . 
+
+in js we can use try catch to error handling then why we use throw?
+To Create Custom Errors: You can use throw to raise errors with custom messages or types, allowing you to better describe what went wrong in your code.
+To Stop Execution: When you use throw, the execution of code after the throw statement stops until the error is caught in a catch block. This is useful for preventing further processing when an issue is detected.
+
+Running code in any case with finally
+_______________________________________
+
+the finally block is used after the try-catch blocks and is used to define the code block will be executed in any case.
+ This block is executed whether an error occurs or not, and even if a return statement is used in the try block.
+
+In the sample code block above, the codes in the try block are executed. If an error occurs, this error is caught in the catch block, but if no error occurs, the flow moves to the finally block. The finally block contains the code to be executed in any case and is always executed, whether there is an error or not. In this way, the finally block ensures that certain operations are performed in every case.
+
+finally block; It is preferred so that if resources such as file operations, network connections, or database connections are opened, these resources will work in all cases.
+
+Hover over Solutions, then quickly move the cursor away.

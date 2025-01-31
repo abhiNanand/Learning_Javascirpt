@@ -1,0 +1,68 @@
+<!--
+
+
+The challenge includes two elements. A #gift-box div and a #click-btn button. The gift box is hidden with the .hide class.
+
+Your task is write JavaScript code that listens to a click event on the button, and display the hidden box when the user clicks the button.
+
+Your task is write JavaScript code that listens to a click event on the button, and display the hidden box when the user clicks the button.
+-->
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <style>
+.hide 
+{
+  display: none;
+}
+
+#gift-box 
+{
+  font-size: 5em;
+}
+
+    </style>
+</head>
+<body>
+    
+
+    <div id="gift-box" class="hide">🎁</div>
+    <button id="click-btn">Show the box</button>
+
+
+</body>
+
+
+
+
+<script>
+
+
+
+const a= document.querySelector('#click-btn');
+
+a.addEventListener('click', 
+
+function()
+{
+    const b=document.querySelector('#gift-box');
+    b.style.display='block';
+}
+);
+
+
+
+
+</script>
+
+
+
+</html>

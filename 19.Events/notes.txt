@@ -1,0 +1,232 @@
+https://www.freecodecamp.org/news/the-javascript-dom-manipulation-handbook/#dom-events-and-event-listeners
+
+
+DOM Events and Event Listeners
+
+Events are the action that takes place in browser.
+these events make website interative.
+
+
+user initiated events- clicking moving the mouse, or typing keyword
+browser initiated evernts are like when a page finishers loading.
+
+Difference Between Event Listener and Event Handler
+
+Event listner is a method that lets us know when an event has to take palce.allows us to take an eye on dom event.That way, when an event happens, you can do something.
+
+Event handler is a response to any event.it is a function that run when an event takes palces.
+
+
+
+For example, you can attach an event listener to a button that lets you know when a user clicks that button. Then you can write an event handler (a function) that prints something on screen anytime a click event occurs.
+
+In this case, the event listener is what informs your app when a click occurs and then trigger a response. And the response (the function that runs when the click occurs) is an example of an event handler.
+
+
+Three ways to register events in javascript
+___________________________________________
+1. using inline event handlers: 
+2. using on-event handlers:
+3. using addEventListener method:
+
+1. using inline event handlers- this is when you add event listener as an attribute.
+<button onclick="alert("hello")">Click me! </button>
+in earlier days this was the only way to use event listener.
+<!-- An example of using an on-event handler -->
+
+<button>Click me!</button>
+
+
+2. using on-event handlers: you use this when you have one event handlers. when you add more than one evernt handlers using this method, only last event handler will run,  as it will override others. 
+
+<button>Click me!</button>
+
+<script>
+  const myButton = document.querySelector('button')
+
+  myButton.onclick = function() {
+    console.log("Run first handler")
+  }
+
+  myButton.onclick = function() {
+    console.log("Run second handler")
+  }
+</script>
+Only the second event handler is executed.
+
+3.using addEventListener: this method allows to add more than one event handler to an element. and it will execute them in a order in which they were added.
+
+The addEventListener method takes two arguments. The first is the event you want to listen to, and the second is the event handler which is the function you want to run when the event occurs.
+
+<!-- An example of using the addEventListener method -->
+
+<button>Click me!</button>
+
+<script>
+  const myButton = document.querySelector('button')
+
+  myButton.addEventListener('click', function() {
+    console.log("Run first handler")
+  })
+
+  myButton.addEventListener('click', function() {
+    console.log("Run second handler")
+  })
+</script>
+ImageThe addEventListener method executes both event handlers.
+
+
+
+
+
+
+
+
+The Event Object:
+
+This is a JavaScript object the browser passes as an argument to the event handler function anytime an event occurs. The object includes some useful properties and methods like the following:
+
+type: the type of event that occurred (like click, mouseover, keydown, and so on)
+target: the element on which the event occurred
+clientX and clientY: the horizontal and vertical coordinates of the mouse pointer at the time the event occurred.
+preventDefault(): prevents default actions associated with the events like preventing a form submission on the submit event.
+stopPropagation(): prevents the event from propagating through the DOM. More on that later.
+
+Types of Events:
+click: when the element is clicked.
+dbclick: when the element is double clicked.
+mouseover: when the mouse pointer enters the element.
+mouseleave: when the mouse pointer leaves the element.
+mousedown: when the mouse is pressed down over an element.
+mouseup: when the mouse is released over an element.
+
+Keyboard events:
+
+keydown: when a key on the keyboard is pressed down.
+keyup: when a key on the keyboard is released.
+keypress: when a key is pressed and shows the actual key that was pressed. Note that this event is not fired for all keys, especially non-printable keys.
+
+
+Form events:
+
+submit: when a form is submitted.
+input: when the value of an input field changes.
+change: when the value of a form element changes and loses focus.
+
+
+Window events:
+
+load: when the browser finishes loading the page.
+unload: when the user leaves the page.
+resize: when the browser window is resized.
+scroll: when the user scrolls through the document.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Event flow in Javascirpt
+When a JavaScript event occurs, the event is propagated or travels either from the target where the event occurred to the outermost element in the DOM or vice versa.
+For example, let's say you click a button on a page. By clicking the button, you've also clicked its parent element and any element the button is inside within the DOM hierarchy.
+
+
+Event Bubbling
+This is happened when the event is first registered on the target on which the event happened, and then registered outwards to the parent and onwards to the outermost element. 
+he example here contains a button #btn. With event bubbling, when an event occurs (say a click) on the button, the event goes through the following sequence.
+see 4 png image
+
+Event bubbling in DOM Manipulation: from button to div#inner to div#outer to body to HTML to document.
+
+The event starts to bubble up from the target element back to the outermost ancestor.
+
+Event Capturing:
+Opposite of event bubbling. event starts from outermost ancestor and travers down to the target element. see image
+https://www.freecodecamp.org/news/content/images/2023/12/JavaScript--2-.png
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Event bubbling DEMO</title>
+    </head>
+    <body>
+        <div id="outer">
+            <div id="inner">
+              <button id='btn'>Click Here</button>
+            </div>
+        </div>
+    </body>
+</html>
+Let's add event listeners to the button, the #inner div, and the #outer div:
+
+const button = document.getElementById('btn')
+const innerDiv = document.getElementById('inner')
+const outerDiv = document.getElementById('outer')
+
+button.addEventListener('click', function() {
+  console.log('Click on button')
+})
+
+innerDiv.addEventListener('click', function() {
+  console.log('Click on inner Div')
+})
+
+outerDiv.addEventListener('click', function() {
+  console.log('Click on outer Div')
+})
+
+By default, browsers use the event bubbling approach. So there is no need to add any argument to the event listener. This is the order in which the event handlers will run in response to a click on the button:
+
+To use the event capturing model, you need to pass a third argument true to the event listener.
+
+//by default browswer uses the event bubbling approach.
+
+
+const a=document.querySelector('.outer');
+
+const b=document.querySelector('.inner');
+
+const c= document.querySelector('#btn');
+
+
+
+
+a.addEventListener('click',function()
+{
+    console.log("click on outer div");
+});c.addEventListener('click', function()
+{
+    console.log('click on button');
+});
+b.addEventListener('click', function()
+{
+    console.log("click on inner div");
+}
+)
+
+
+
+// a.addEventListener('click',function()
+// {
+//     console.log("click on outer div");
+// },true);c.addEventListener('click', function()
+// {
+//     console.log('click on button');
+// },true);
+// b.addEventListener('click', function()
+// {
+//     console.log("click on inner div");
+// },true
+// )
+
+
+=============================================================================
+
+The Event stopPropagation() Method
+we use this method to prevent the event from propagating through the whole dom.
+
+c.addEventListener('click', function()
+// {
+//     event.stopPropagation();          //
+//     console.log('button');
+}
+
+
+//button print hoga bas inner and outer print nhi hoga. 

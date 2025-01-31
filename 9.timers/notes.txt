@@ -1,0 +1,110 @@
+Timers are the high order functions that can be used to delay or repeat the execution of other functions.
+
+syntax
+setTimeout(fun,time)
+
+agar time o second daalenge fir v ho ye baad me print hoga baki sab se q ki ye webapi me chala jata hai wha se q me fir event loop se wapas aata hai.
+
+Cancelling Timers
+Because calling a timer function schedules an action, that action can also be cancelled before it gets executed.
+
+A call to setTimeout returns a timer “ID” and you can use that timer ID with a clearTimeout call to cancel that timer. Here’s an example:
+
+
+setImmediate, and it’s basically the same thing as a setTimeout with a 0 ms but we don’t have to specify a delay there:
+
+Just like clearTimeout, there is also a clearInterval function, which does the same thing but for setInerval calls, and there is also a clearImmediate call as well.
+
+
+
+Why we use clearTimeout?
+for debouncing;
+
+Let’s make this very simple, step by step, with an easy example.
+
+---
+
+### **Imagine This Situation**
+You’re typing in a search box. Every time you type a letter, the website wants to search for matching items. But if you type quickly, it shouldn't search after every letter you type because:
+1. It will make too many requests.
+2. It’s unnecessary until you’re done typing.
+
+---
+
+### **What Debouncing Does**
+Debouncing waits until you stop typing for a short time (e.g., 500ms) before running the search function.
+
+---
+
+### **Example Without Debouncing**
+```javascript
+function search(query) {
+  console.log("Searching for:", query);
+}
+
+// Simulating typing in a search box
+search("h");
+search("he");
+search("hel");
+search("hell");
+search("hello");
+
+// Output:
+// Searching for: h
+// Searching for: he
+// Searching for: hel
+// Searching for: hell
+// Searching for: hello
+```
+Here, the search function runs **every single time** you type a letter. This is inefficient.
+
+---
+
+### **Example With Debouncing**
+Now let’s use debouncing to fix this:
+
+```javascript
+let timeoutID; // This will hold the timer ID
+
+function debounceSearch(query) {
+  clearTimeout(timeoutID); // Cancel the previous timer
+
+  // Start a new timer
+  timeoutID = setTimeout(() => {
+    console.log("Searching for:", query); // Only runs after the delay
+  }, 500); // Wait for 500ms
+}
+
+// Simulating typing in a search box
+debounceSearch("h");
+debounceSearch("he");
+debounceSearch("hel");
+debounceSearch("hell");
+debounceSearch("hello");
+
+// Output (after 500ms):
+// Searching for: hello
+```
+
+---
+
+### **What’s Happening Here?**
+
+1. Every time you type a letter, the `debounceSearch` function runs.
+2. **`clearTimeout(timeoutID)`** cancels the last timer.
+3. A new timer is set for 500ms.
+4. If no new letter is typed in 500ms, the `console.log` runs with the final search term.
+
+---
+
+### **In Simple Words**
+- Without debouncing: Search runs every time you type a letter.
+- With debouncing: Search runs **only once**, after you finish typing and stop for 500ms.
+
+---
+
+### **Real-Life Example**
+
+When you search on Google, notice how results only show up after you stop typing? That’s debouncing in action! It waits for you to stop typing instead of searching every single letter.
+
+Is this clearer now? 😊

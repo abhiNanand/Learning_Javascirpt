@@ -1,0 +1,33 @@
+in code editor i had not write doctype head body html. directly wrote  <script>
+
+    console.log("my name is abhi");
+ </script> and it working . output is showing in console how this is possible.
+
+ ==
+ This works because most modern browsers, like Chrome, Firefox, and others, are designed to be very forgiving when it comes to interpreting HTML. Here's why your code still works:
+
+HTML Parsing Tolerance: Browsers automatically infer missing parts of an HTML document. If you don’t include the <!DOCTYPE>, <html>, <head>, or <body> tags, the browser assumes them by default and places your code in the appropriate location.
+
+Your code is interpreted as if it were part of the <body> of an implied HTML structure, like this:
+
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+    <script>
+        console.log("my name is abhi");
+    </script>
+</body>
+</html>
+
+
+    =========================================================================
+
+if i am writing scirpt tag under body tag and doing some operation or printing something in cosole it still working.
+
+Placing the <script> tag inside <body> is very common for inline JavaScript or dynamically manipulating content on the page. This allows you to work with elements that are already loaded.
+
+
+   in array if we use any function we starts with arrayname.function(), but in object we do Object.function(objectname); why this difference is there any reason .
+
+ 

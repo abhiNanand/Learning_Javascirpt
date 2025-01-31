@@ -1,0 +1,92 @@
+
+https://www.tutorialspoint.com/difference-between-local-storage-session-storage-and-cookies-in-javascript
+
+
+localStorage.setItem()
+
+javascirpt provide 3 mechanism for storing data to the client-
+
+coockies, session storage, local storage
+Eachone had advantage and disadvantage
+
+Local Storage:
+-most recent mechanism
+-stores larger amount of data
+-cannot be deleted even if browser closed
+-Local storage is useful for storing data that the user will need to access later, such as offline data.
+-data is stored in key/value pairs.key is name of the data and value is the actual data.
+-10mb data
+To create a key, you use the setItem() method. This method takes two arguments, the first is the key, and the second is the value you want to store.
+
+localStorage.setItem('key','value');
+
+
+Now that you have a key, you can store any data you want under that key. The data you store can be any data type that JavaScript supports, including strings, numbers, objects, and arrays.
+
+To store data, you use the setItem() method again. This time, you pass in the key as the first argument and the data you want to store as the second argument.
+
+localStorage.setItem('key', 'value');
+To retrieve data from Local Storage, you use the getItem() method. This method takes the key as an argument and returns the data that is stored under that key.
+
+localStorage.getItem('key');
+
+to remove
+localStronge.removeItem('key');
+
+
+
+
+
+
+
+
+
+
+
+Cookies:
+-oldest and most well-known mechanism.
+-simple to use .
+-limited to 4kb of data.
+-stored data that is not sensitive.
+
+A cookie is a small piece of data that is stored on the users computer. coockies are used to store information about user such as their name, passoword and preference. 
+
+Cookies are  created using hte document.cookie property. this peroperty is used to set , get, and delete cookies.
+
+Setting a cookie
+________________
+
+a cookie is set using the setItem() method. accept two argument name of the cookie and value of the cookie. 
+document.cookie = "name=tutorialsPoint";
+var user = document.cookie.getItem("name");
+
+
+
+Session Storage:
+-similar to cookies,but data only stored for current session. 
+-data deleted when browser closed.
+-stores sensitive data.
+
+to use session storage we use sessionStrorage object.
+
+- sessionStroage.setItem("name","tutorials");
+
+-sesssionStorage.getItem("name");
+
+-5mb data 
+
+sessionStorage object returns the number of key/value pairs
+this method accepts an index as a parameter and returns the key at that index in the sesssion storage. 
+
+The following code sets a cookie with the name "name" and the value "tutorialsPoint".
+
+
+
+_++++++++++++++++++++_____________++++++++++++++++++++++++++++++-===-=-
+
+
+
+
+
+
+ 

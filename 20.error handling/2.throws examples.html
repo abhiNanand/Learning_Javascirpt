@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+
+
+
+ <script>
+
+function validateEmail(email) {
+    if (!email.includes('@')) 
+    {
+        throw new Error("Invalid email address: '@' character not found!");
+    }
+    return "Valid email address!";
+}
+
+try 
+{
+    console.log(validateEmail("johnexample.com"));
+}
+catch (error) 
+{
+    console.log("Error Caught:" + error.message);
+}
+
+console.log(validateEmail("john@example.com"));
+
+
+ </script>
+
+
+
+</html>

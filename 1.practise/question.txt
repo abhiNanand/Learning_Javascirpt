@@ -1,0 +1,104 @@
+Why we use IIFE?
+understand this and arrow funciton.
+
+Q1. practise questions on each topic medium, advance, use case.
+
+
+
+Q2.there is a array its element are one two three four five. write a code where output should be in obect where keys are the size of array elments length and five are the name of those array elements
+
+
+
+const array = ["one", "two", "three", "four", "five"];
+
+const lengthToWordsMap = array.reduce((acc, word) => {
+  const len = word.length; // Get the length of the word
+  if (!acc[len]) {
+    acc[len] = []; // Initialize the array for this length
+  }
+  acc[len].push(word); // Add the word to the appropriate length group
+  return acc;
+}, {});
+
+console.log(lengthToWordsMap);
+
+
+
+
+this and Event Handlers
+const obj = {
+  name: 'John',
+  greet: function() {
+    setTimeout(function() {
+      console.log(this.name); // undefined (Regular function inside setTimeout binds 'this' to the global object)
+    }, 1000);
+  }
+};
+
+obj.greet(); // undefined
+
+this and Arrow Function Inside a Method
+javascript
+Copy
+Edit
+const obj = {
+  name: 'John',
+  greet: function() {
+    setTimeout(() => {
+      console.log(this.name); // 'John' (Arrow function retains 'this' from the surrounding context, which is 'obj')
+    }, 1000);
+  }
+};
+
+obj.greet(); // 'John'
+
+Arrow Functions and this in Nested Functions
+javascript
+Copy
+Edit
+const obj = {
+  name: 'John',
+  greet: function() {
+    console.log(this.name); // 'John' (Regular function, 'this' refers to 'obj')
+    
+    const innerFunc = () => {
+      console.log(this.name); // 'John' (Arrow function lexically binds 'this' from the surrounding context, which is 'greet')
+    };
+
+    innerFunc();
+  }
+};
+
+obj.greet(); // 'John' (first) and 'John' (second)
+
+
+Arrow Function with this Inside a Loop
+javascript
+Copy
+Edit
+const obj = {
+  name: 'Alice',
+  greet: function() {
+    for (let i = 0; i < 3; i++) {
+      setTimeout(() => {
+        console.log(this.name); // 'Alice' (Arrow function binds 'this' lexically to 'obj')
+      }, 1000);
+    }
+  }
+};
+
+obj.greet(); // 'Alice' (3 times)
+
+
+function MyObject() {
+  this.value = 10;
+  this.increment = () => {
+    this.value++;
+    console.log(this.value);
+  };
+}
+
+const obj = new MyObject();
+obj.increment(); // 11 (Arrow function keeps 'this' bound to 'obj')
+const incrementFunc = obj.increment;
+incrementFunc(); // 12 (Arrow function still binds 'this' to 'obj')

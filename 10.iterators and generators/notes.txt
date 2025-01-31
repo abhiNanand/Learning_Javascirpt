@@ -1,0 +1,70 @@
+Iterator 
+an iterator is an object
+that allows to traverse though array or string one element at a time.
+keep track of position as we go though.
+
+next()- returns two properties. value- the current value and done-a boolean.true if iteration completed false when iteration not completed.
+
+const arr = [1, 2, 3];
+const iterator = arr[Symbol.iterator](); // Getting the iterator from the array
+
+console.log(iterator.next()); // { value: 1, done: false }
+console.log(iterator.next()); // { value: 2, done: false }
+console.log(iterator.next()); // { value: 3, done: false }
+console.log(iterator.next()); // { value: undefined, done: true }
+
+
+
+Genearator: A generator is a special kindo ffucntion that produce an iterator.
+allows to pause the exectuion and resume it later using the yield keyword.
+
+
+How it works:
+You define a generator function using function*.
+Inside the function, you use the yield keyword to "pause" the execution and return a value.
+When you call the generator, it returns an iterator, which you can use to get the values one by one.
+
+In generators, the idea is similar: you pause the function’s execution at a certain point and resume it later without losing your place. This is done using the yield keyword.
+
+
+
+function* task()
+{
+  console.log("Task 1 started");
+  yield; //pause here, and resume when next() is called again
+  console.log("Task 2 started");
+  yield; // pause again
+  console.log("Task 3 started");
+}
+
+const gen= task(); // create the genenrator
+
+gen.next();//start the generator and pause at first yield;
+gen.next(); //resume from teh first yield and pause at second
+gen.next(); // resume from second yield and completes the function
+
+
+ 
+
+
+ 
+
+function* generatorExample() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+const gen = generatorExample();  // Create a generator
+
+console.log(gen.next()); // { value: 1, done: false }
+console.log(gen.next()); // { value: 2, done: false }
+console.log(gen.next()); // { value: 3, done: false }
+console.log(gen.next()); // { value: undefined, done: true }
+
+ 
+ difference is that  iterator :It doesn’t pause or resume execution.
+ generator is more powerful and flexible tool.
+
+ yeild pause and resume also return value if will return value.
+ 

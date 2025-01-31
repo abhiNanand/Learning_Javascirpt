@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1 id="page-title">Phonebook</h1>
+
+    <p class="family">Marie</p>
+    <p class="family">Jose</p>
+
+    <p class="work">Anne</p>
+    <p class="work">Joan</p>
+
+    <p id="topic">JS array methods</p>
+    <p id="first-method">map</p>
+    <p id="second-method">filter</p>
+
+    <img src="netflix_logo.webp"  alt="An example image" width="200" height="100">
+   
+    <h1>Styling elements with JavaScript</h1>
+</body>
+
+<script>
+
+
+
+const a= document.getElementById("page-title");
+      console.log(a);
+ 
+      const famContacts = document.getElementsByClassName("family")
+      console.log(famContacts);
+
+//output  looks like an array, but it is not. can access the elements using bracket notation .cannot apply array methods like map, filter, and forEach on it.
+console.log(famContacts[0]);
+
+//converting to arrray and itreate though all the class elements.use spread operator.
+let famContactsArray = [...famContacts];
+famContactsArray.forEach((element)=>console.log(element));
+
+
+
+
+console.log("");
+console.log("");
+
+
+
+//using getElementByTagName
+const c = document.getElementsByTagName('p');
+console.log(c);
+
+
+//using querySelector
+console.log("");
+console.log("");
+
+const d = document.querySelector('.work');
+console.log(d);
+const e=document.querySelectorAll('p');
+console.log(e);
+console.log(e[2]);
+
+console.log("");
+console.log("");
+
+
+//using inner html to get the content of tha paragarah
+
+
+
+const topicElement = document.querySelector('#topic');
+console.log(topicElement.innerHTML)
+
+const f = document.querySelectorAll('p');
+//console.log(f.innerHTML);//undefined
+console.log(f[1].innerHTML); //this way is correct
+
+//update the contents of topicElement;
+topicElement.innerHTML="My name is Abhisek Anand"; //on webpage paragraph ke jagah My name is Abhishek Anand show hoga.
+
+//changing the strucure of topicElement from p to bold
+topicElement.innerHTML="<b> My name is <i>Abhisek Anand </i></b>"
+
+
+console.log("");
+console.log("using get Attribute and set Attriubte");
+//using getAttribute and set Attribute.
+const imageElement = document.querySelector('img');
+console.log(imageElement.getAttribute('src'));
+console.log(imageElement.getAttribute('height'));
+console.log(imageElement.getAttribute('alt'));
+console.log(imageElement.getAttribute('h')); //null
+
+
+//using set Attribute
+console.log("");
+console.log("using set Attribute");
+
+console.log("before:",imageElement.getAttribute('alt'));
+imageElement.setAttribute('alt','this is netflix logo');
+console.log("after:",imageElement.getAttribute('alt'));
+
+//creating new attribute.
+//adding border property
+console.log("before:",imageElement.getAttribute('style'));//null
+imageElement.setAttribute('style','order: 2px solid red');
+console.log("after:",imageElement.getAttribute('style'));
+
+//removing the attribute name
+
+imageElement.removeAttribute('style');
+console.log("after:",imageElement.getAttribute('style'));
+
+
+// setting styles with .style property
+
+console.log("");
+console.log("");
+
+const header = document.querySelector('h1');
+header.style.color= 'pink';
+topicElement.style.color= 'blue';
+topicElement.style.backgroundColor='green';
+
+
+console.log("");
+console.log("Setting styles with classes");
+
+const g = document.getElementsByClassName('family');
+console.log(g[0].className);
+//g[0].className='weCanChangeAlso'
+
+    </script>
+
+</html>

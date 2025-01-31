@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>this and arrow</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+console.log("this in arrow function");
+
+const person={
+    name: "jhon",
+    greet:()=>{
+        console.log(`this ${this.name}`);  //undefined
+    }
+};
+
+person.greet();
+
+console.log("without this function");
+
+const person1 =
+{
+    name:"abhishekanand",
+    greet: function()
+    {
+        console.log(this.name);
+    }
+};
+person1.greet();
+
+
+
+/*
+
+Key Difference:
+In regular functions, this depends on how the function is called.
+In arrow functions, this is lexically inherited from the surrounding scope (where the function is defined).
+*/
+
+function Person(name) {
+  this.name = name;
+  this.greet = () => {
+    console.log(this.name); // 'this' refers to the surrounding 'Person' context
+  };
+}
+
+const john = new Person("John");
+john.greet(); // Output: John
+</script>
+</html>

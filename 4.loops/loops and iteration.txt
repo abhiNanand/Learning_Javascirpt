@@ -1,0 +1,95 @@
+What is loop?
+a loop in programming is a structure that allows to execute a block of code
+repetedly based on condition. used where we had to perform a task multiple number of times
+without writing the same code over and over again.
+
+
+
+Types of loops:
+Finite loops 
+infinite loops
+condtional loops.
+
+key component of loops are:
+initilization.
+condtional
+body: block of get executed during each iteration of loops
+update or iteration.
+
+loops in javascript:
+
+1. for loop: used when number of itereation is known before hand.
+
+for(initilization; conditon, iteration)
+{
+    //code to be executed
+}
+
+2. while loop: the while loop is used when number of iteration is not known in advanced
+and loop should continue as long as the contion is true;
+
+while(condtion)
+{
+    //code to be executed
+}
+
+3. do while loop: it is same as while loop but it guarntee that loop will run once without checking the condition.
+
+do
+{
+
+}
+while(condition);
+
+4. for in  loop: this loop is used to iterate over the enumerable properties of an object
+
+for(let key in object)
+{
+    //code to be executed
+}
+
+example:
+const obj={a:1, b:2, c:3};
+for(let key in obj)
+{
+    console.log(` ${key}: ${obj[key]}  `)
+    // this ` is backtick
+}
+       
+
+         or
+
+for(let i in obj)
+{
+    console.log(i ,'=' , obj[i]);
+}
+
+5. for of loop: this loop used to iterate over iteratable object (like objects, strings, map, and sets)
+   
+   const arr=[10,20,30]
+   for (let value of arr)
+   {
+    console.log(value)
+   }
+
+for of value print karta hai and for in keys print karta hai.
+
+   controlled statements in loops:
+   1.break: exit the loop
+   2.continue: skip the current iteration and continue the next one.
+
+   example:
+
+   for(let i=0; i<8; i++)
+   {
+
+
+ if(i==4)
+ continue;
+ if (i==8)
+ breake;
+
+ console.log(i);
+
+   }
+

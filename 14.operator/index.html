@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Operator</title>
+</head>
+<body>
+</body>
+
+
+
+<script>
+
+
+// //Additon operator missicilinous
+// console.log(null + 10);//10
+// console.log(2 + 2);
+// // Expected output: 4
+
+// console.log(2 + true);
+// // Expected output: 3
+
+// console.log('hello ' + 'everyone');
+// // Expected output: "hello everyone"
+
+// console.log(2001 + ': A Space Odyssey');
+// // Expected output: "2001: A Space Odyssey"
+
+// "foo" + "bar"; // "foobar"
+// 5 + "foo"; // "5foo"
+// "foo" + false; // "foofalse"
+// "2" + 2; // "22"
+
+// console.log(undefined + 5); //NaN
+
+// console.log("Hello" + null); //Hellonull
+
+
+// console.log(  {} +[9]); //[object object]
+// // Explanation: This can be tricky! Due to JavaScript parsing rules, the {} is treated as an empty block, and [] is converted to an empty string ("").
+
+
+// console.log(1 + 2 + "3"); //33
+
+// console.log("3" - 2); //1
+
+// console.log(+true + +"5");
+// // Answer: 6
+// // Explanation:
+
+// // The unary + converts true to 1.
+// // The +"5" converts the string "5" to the number 5.
+// // Adding these gives 1 + 5 = 6.
+
+// console.log(10 + +"5px");
+// // Answer: NaN
+
+
+// console.log([] + 1 + 2);
+// // Answer: "12"
+// // Explanation: The empty array ([]) is converted to an empty string (""). Then, string concatenation occurs: "" + 1 = "1", followed by "1" + 2 = "12".
+
+// console.log("5" + 2 - 1);
+// // Answer: 51
+// // Explanation:
+
+// // "5" + 2 results in "52" (string concatenation).
+// // "52" - 1 converts the string "52" to a number, so 52 - 1 = 51.
+
+// console.log(null + "10" + true); //null10true
+
+
+// console.log("10" - -"5");
+// // Answer: 15
+// // Explanation:
+
+// // "10" is converted to 10 (a number).
+// // -"5" converts "5" to -5.
+// // 10 - (-5) = 15.
+
+
+// console.log([] + [] + "5" + {} + []);
+// //5 [object object]
+
+// // console.log([] + 10 - "5" + true);
+// // Answer: 6
+// // Explanation:
+
+// // [] + 10 results in "10" (empty array becomes an empty string, concatenated with 10).
+// // "10" - "5" converts both strings to numbers: 10 - 5 = 5.
+// // 5 + true converts true to 1, so 5 + 1 = 6.
+
+// // console.log({} + {} + "10");
+// // Answer: "[object Object][object Object]10"
+
+// console.log(9+"true");//9true
+
+// console.log("8" - "9"); //-1
+
+// console.log((5 + "5") - ("5" + 5));
+
+// // console.log(null + undefined + "5" - "5");
+// // Answer: NaN
+// // Explanation:
+
+// // null + undefined results in NaN (arithmetic operation with undefined results in NaN).
+// // NaN + "5" results in the string "NaN5".
+// // Subtracting "5" from "NaN5" results in NaN because "NaN5" cannot be coerced into a number.
+
+
+// console.log("false"+"false");
+// // 
+
+// const x = y = 5;
+//    same 
+// const x=y=5
+ 
+
+
+// let x;
+// console.log(x); // undefined
+// console.log(x = 2); // 2
+// console.log(x); // 2
+
+
+
+
+//bitwise &
+
+ 
+
+// let a = 0b1100;
+// let b = 0b1010;
+// let result = a ^ b; 
+// console.log(result);
+// console.log(result.toString(2));  
+
+
+
+
+</script>
+
+
+
+</html>

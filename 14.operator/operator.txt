@@ -1,0 +1,18 @@
+Expressions and operators
+
+
+1. This - this keyword refers to the context where a piece of code such as function body is supposed to run
+
+2. Addition(+) - produce sum of numeric oprands or string concatenation.
+
+3. Addition assignment (+=)
+
+4. Assigment (=)
+
+5. Async funciton* expression  used to define async funciton generator. 
+
+6. Bitwise And (&): return number or bigint whose 
+
+7.Bitwise not (~):
+
+The super keyword is used to access properties on an object literal or class's [[Prototype]], or invoke a superclass's constructor.

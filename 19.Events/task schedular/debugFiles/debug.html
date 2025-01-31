@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+    <select id="taskStatus">
+        <option value="showall" id="showall">showall</option>
+        <option value="completed" id="completed">Completed</option>
+        <option value="nocompleted" id="notcompleted">Not completed</option>
+    </select>
+
+
+    <script>
+ 
+
+
+function showCompleteAndNotComplete(flag)
+{
+    console.log(flag);
+}
+
+const taskStatus = document.querySelector("#taskStatus");
+
+taskStatus.addEventListener("change", function() {
+    const selectedValue = this.value; // Get selected option value
+
+    if (selectedValue === "completed") {
+        console.log("Completed Selected");
+        showCompleteAndNotComplete(1);
+    } else if (selectedValue === "nocompleted") {
+        console.log("Not Completed Selected");
+        showCompleteAndNotComplete(1);
+    } else {
+        console.log("Show All Selected");
+        showCompleteAndNotComplete(1);
+    }
+});
+
+function showCompleteAndNotComplete(flag) {
+    console.log(flag);
+}
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+    
+        <p class="full-text"> <i id ="italics" >Some italicized text </i> </p>
+        </div>
+</body>
+
+
+
+
+
+<script>
+
+
+const italicizedText = document.getElementById('italics');
+console.log(1,italicizedText);
+console.log(2,italicizedText.parentNode);
+    // <p class="full-text"> <i id ="italics" >Some italicized text </i> </p>
+  
+    console.log(3,italicizedText.parentNode.parentNode);//  <div class="container">
+    
+    // <p class="full-text"> <i id ="italics" >Some italicized text </i> </p>
+    // </div>
+    
+    const italicschildnodes=italicizedText.childNodes;
+    console.log(4,italicschildnodes);
+    
+
+    // all this will be showing wrong because it will worng on indivisual elements by getElementByClassName access will access all have classname container.
+    const container = document.getElementsByClassName('container');
+    console.log(container.children);
+    console.log(container.childNodes);
+
+    // const container = document.querySelector('.container'); // Better way to get a single element
+    console.log(container.children); // Outputs: HTMLCollection [p] (only <p> element)
+    console.log(container.childNodes); // Outputs: NodeList [#text, p, #text] (includes text nodes like whitespace)
+
+   // Selecting the First or Last Child/Element
+   
+
+</script>
+</html>

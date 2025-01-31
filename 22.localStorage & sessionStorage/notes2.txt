@@ -1,0 +1,24 @@
+to clear console use
+localStorage.clear()
+
+
+
+localStorage.setItem(a,5);
+ VM1125:1 Uncaught ReferenceError: a is not defined
+
+ The error occurs because you are trying to use the variable a, but it has not been defined anywhere in your code before being used in the localStorage.setItem() method.
+
+localStorage.getItem(a)
+'5'             . i had set 5 as interger but getting it as string why
+ChatGPT said:
+ChatGPT
+When you use localStorage to store data, everything is stored as a string—even if you store a number, object, or array. This is because localStorage only supports strings natively.
+
+
+let number = localStorage.getItem('key');
+number = parseInt(number);  // Now it's a number
+
+
+let obj = { name: 'Alice', age: 25 };
+localStorage.setItem('user', JSON.stringify(obj));
+

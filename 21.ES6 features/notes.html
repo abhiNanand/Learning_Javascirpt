@@ -1,0 +1,116 @@
+ECMA stands for European Computer Manufacturers Association.
+ECMA is responsible for defining the specifications for the ECMAScript language standard, which forms the foundation for several programming languages, including:
+
+JavaScript
+JScript (Microsoft's version of JavaScript)
+ActionScript (used in Adobe Flash)
+
+ECMAScript is the standardized specification that defines how JavaScript (and other languages like JScript and ActionScript) should behave.
+
+ECMA releases new versions of ECMAScript (or JavaScript) with new features. Some key versions include:
+
+ECMAScript 3 (1999): This was one of the first major standards and became the foundation for modern JavaScript.
+ECMAScript 5 (2009): Introduced many important features like strict mode, JSON support, and getters and setters.
+ECMAScript 6 (ES6 / ECMAScript 2015): A major update, adding many features like:
+let and const
+Arrow functions (=>)
+Classes
+Promises
+Template literals
+Destructuring 
+
+Later Versions (ES7 and Beyond): ECMAScript continues to evolve with annual updates, introducing features like:
+Async/await (ES2017)
+Object spread/rest syntax (ES2018)
+Dynamic imports (ES2020)
+Logical assignment operators (ES2021)
+++++++++++++++================================================+++++++++++++++
+
+Es6 features.
+
+1. let const
+2. rest and spread operators
+3.template literals:
+4.Classes
+5.modules
+6.arrow function
+
+
+
+3. Template Literals in Es6- it provide a convenient way to create string with dynamic content.
+They use backticks (`) instead of single or double quotes (' or "). Here's the breakdown:
+
+Template literals are enclosed within backticks:
+
+javascript
+Copy
+Edit
+const message = `Hello, world!`;
+console.log(message); // Output: Hello, world!
+
+nction Calls Inside Template Literals: You can call functions directly within ${}.
+
+javascript
+Copy
+Edit
+const greet = () => "Hello!";
+const message = `${greet()} How are you?`;
+console.log(message); 
+// Output: Hello! How are you?
+
+
+==============================================
+Destructuring- allows to extract values from arrays. 
+const names = ["Alice", "Bob", "Charlie", "Dave"];
+const [name1, name2, name3, name4] = names;
+
+console.log(name1); // Output: "Alice"
+
+Destructuring Objects:
+With object destructuring, you can extract specific properties from an object and assign them to variables with matching names. The variable names are enclosed in curly braces {}. Here's an example:
+
+const person = {
+  name: "Alice",
+  age: 25,
+  address: {
+    city: "New York",
+    state: "NY",
+  },
+};
+
+const { name, age, address } = person;
+
+console.log(name); // Output: "Alice"
+console.log(age); // Output: 25
+console.log(address); // Output: {city: "New York", state: "NY"}
+
+==========================================================================================================================================================
+
+
+       
+class Person 
+{
+    constructor(name)
+    {
+        this.name=name;
+    }
+
+    greet()
+    {
+        console.log(`hello my name is ${this.name}`);
+    }
+}
+
+const a = new Person();
+a.name="abhi";
+a.greet();
+
+
+==========================================================================================================================================================
+Modules:
+==========================================================================================================================================================
+Map:
+==========================================================================================================================================================
+Set:
+==========================================================================================================================================================
+

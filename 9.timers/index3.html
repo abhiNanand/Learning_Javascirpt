@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+    
+/*
+Timers Challenge #2
+Write a script to print the message “Hello World” every second, but only 5 times. After 5 times, the script should print the message “Done” and let the Node process exit. 
+Constraints: You cannot use a setTimeout call for this challenge.
+    */
+
+
+//     let counter=0;
+//    const timerId= setInterval(
+//         ()=>{console.log("hello world");
+//         counter+=1;
+//         if(counter===5)
+//         {
+//             console.log("done");
+//             clearInterval(timerId);
+//         }}
+//         ,1000
+//     );
+
+//     Write a script to continuously print the message “Hello World” with varying delays. Start with a delay of 1 second and then increment the delay by 1 second each time. The second time will have a delay of 2 seconds. The third time will have a delay of 3 seconds, and so on.
+
+// Include the delay in the printed message. Expected output looks like:
+
+// let delay=1;
+
+// const func = function()
+// {
+//     console.log("hello delay is ",delay,"sec");
+//     delay++;
+// }
+
+// setInterval(
+//     func
+
+//     , delay*1000
+// )
+
+
+//here delay inside setInterval no changing jo initial me le leya whi time baar baar use kr rha hai func ke andher to delay increment ho rha but yha koi fark nhi pr rha
+
+
+//using recrusive apporach using set timeout.
+
+
+// let delay=1;
+
+
+// const func= function()
+// {
+//     console.log("hello delay is",delay,"sec");
+//     delay++;
+//     setTimeout(func,delay*1000);
+// }
+
+
+// setTimeout( func, delay*1000);
+
+
+
+
+</script>
+</html>

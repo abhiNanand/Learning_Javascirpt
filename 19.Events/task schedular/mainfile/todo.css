@@ -1,0 +1,48 @@
+body
+{
+    background-color: rgb(143, 189, 206);
+}
+
+.taskschedular
+{
+    margin-left:30%;
+    background-color: rgb(233, 160, 155);
+    width: 300px;
+    text-align: center;
+    
+}
+
+.addTask
+{
+    margin-top:10%;
+    margin-left:20%;
+    background-color: rgb(170, 146, 193);
+    width:40%;
+    padding:50px;
+}
+
+.showTask
+{
+
+    margin-top:5%;
+    margin-left:20%;
+    background-color: rgb(170, 146, 193);
+    width:40%;
+    padding:50px;
+    background-color: rgb(170, 146, 193);;
+}
+.showTask h1
+{
+    text-align: center;
+    margin-top: 1%;
+}
+
+.heading
+{
+    margin-left:45%;
+}
+
+.btn-delete
+{
+    background-color: none;
+}

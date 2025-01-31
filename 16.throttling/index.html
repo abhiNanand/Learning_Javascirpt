@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+
+<script>
+
+function throttle(func, delay) {
+    let timeout = null; // To track the timer
+    return () => {
+        if (!timeout) {
+         func(); // Call the function
+            timeout = setTimeout(() => {
+                timeout = null; // Reset the timer after the delay
+            }, delay);
+        }
+    };
+}
+
+// Example usage
+const throttledFunction = throttle(() => {
+    console.log("Throttled function called at:", new Date().toLocaleTimeString());
+}, 2000); // Throttle the function to run at most once every 2 seconds
+
+// Simulate rapid calls to the throttled function
+setInterval(() => {
+    throttledFunction(); // This will only log once every 2 seconds
+}, 1000); // Trying to call it every 500ms
+
+</script>
+
+
+</html>

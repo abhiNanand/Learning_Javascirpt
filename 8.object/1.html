@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     
+    <title>Object</title>
+</head>
+<body>
+    
+ 
+
+    <script>
+
+
+//creating object
+const obj={a:1,b:"abhishek",c:{}, baz:{myProp:12},};
+
+console.log(obj.a);
+console.log(obj.baz.myProp);
+
+const a =0;
+const b="ravi";
+const c= {};
+
+const obj2={a:a,b:b,c:c};
+
+console.log(obj2.b);
+
+
+const obj3 = {a,b,c};
+
+console.log(obj3.b);
+
+//1
+//ravi
+//ravi
+
+
+//creatign object with new constructor;
+// yha pr humlog new se object banan rhe aur function ki madat se usko initilize kr rhe hai
+
+function Car(make, model,year)
+{
+    this.make=make;
+    this.model = model;
+    this.year=year;
+}
+const car1 = new Car('Eagle', 'Talon TSi', 1993);
+
+console.log(car1.make);
+// we can access make due to this . because this is refrencing to the object.
+//////////?????//////////?????//////????//??//?///?/?//?/?/?/?///////?///?/?/?/?/?/?//
+
+    </script>
+     
+</body>
+</html>

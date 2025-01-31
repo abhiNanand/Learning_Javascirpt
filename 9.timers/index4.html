@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+
+
+const obj = { 
+  id: '42',
+  whoCalledMe:()=> {
+    console.log('Caller is',this);  //window
+  }
+};
+
+obj.whoCalledMe();
+
+
+const objj = { 
+  id: '42',
+  whoCalledMe:function() {
+    console.log('Caller is',this);// whoCalledMe
+  }
+};
+
+objj.whoCalledMe();
+</script>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <div class="outer">
+
+
+        <div class="inner">
+
+            <button id="btn">click here</button>
+        </div>
+    </div>
+
+
+</body>
+
+
+<script>
+//by default browswer uses the event bubbling approach.
+
+
+const a=document.querySelector('.outer');
+
+const b=document.querySelector('.inner');
+
+const c= document.querySelector('#btn');
+
+
+
+
+// a.addEventListener('click',function()
+// {
+//     console.log("click on outer div");
+// });c.addEventListener('click', function()
+// {
+//     console.log('click on button');
+// });
+// b.addEventListener('click', function()
+// {
+//     console.log("click on inner div");
+// }
+// )
+
+
+
+// a.addEventListener('click',function()
+// {
+//     console.log("click on outer div");
+// },true);c.addEventListener('click', function()
+// {
+//     console.log('click on button');
+// },true);
+// b.addEventListener('click', function()
+// {
+//     console.log("click on inner div");
+// },true
+// )
+
+
+//To use the event capturing model, you need to pass a third argument true to the event listener.
+
+
+
+
+//using stop propagation method. 
+
+// a.addEventListener('click',function()
+// {
+  
+//     console.log("click on outer div");
+// });c.addEventListener('click', function()
+// {
+//     event.stopPropagation();          //
+//     console.log('click on button');
+    
+// });
+// b.addEventListener('click', function()
+// {
+//     console.log("click on inner div");
+// }
+// )
+</script>
+
+</html>

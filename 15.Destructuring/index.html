@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+
+
+
+<script>
+
+const arr=[1,2,3,4];
+
+// //basics destructuring
+
+// const [a,b]=arr;
+// console.log(a,typeof a);
+// console.log(b);
+
+
+// //skip item in the array using comma
+ 
+// const [,c,,d]=arr;
+// console.log(c,d);
+
+
+// //rest element
+// const [e,f,...rest]=arr;
+// console.log(e,f,rest);
+
+// // 1
+// // 2
+// // 3,4
+
+
+// //object Destructuring (Basic)- destructuring allows you to extract properties from an object from an object into variables.
+
+// const obj = {name:'Alice', age:25};
+
+// //basic destructuring 
+// let {name,age}=obj;   //name age ke jagah kuch aur likhenge tho galat aayega 
+// console.log(name);
+// console.log(age);
+
+// //to rename variable while destructuring
+
+// const {name:na, age:ag}=obj;
+// console.log(na);
+// console.log(ag)
+
+
+// console.log(obj.na);//undefine
+// console.log(obj.ag);//undefine
+
+// name="hero";
+// console.log(name);//hero
+// console.log(obj.name);//alice
+
+
+//}
+
+let x=10;
+let y=20;
+
+//swapping using destructuring
+
+// [x,y]=[y,x];
+// console.log(x);
+// console.log(y);
+
+// console.log([..."hekki"]);//['h','e','k','k','i']
+// console.log(..."hello");//h e l l o
+// console.log("begins");
+
+// setTimeout(() => {
+//   console.log("setTimeout 1");
+//   Promise.resolve().then(() => {
+//     console.log("promise 1");
+//   });
+// }, 0);
+
+// new Promise(function (resolve, reject) {
+//   console.log("promise 2");
+//   setTimeout(function () {
+//     console.log("setTimeout 2");
+//     resolve("resolve 1");
+//   }, 0);
+// }).then((res) => {
+//   console.log("dot then 1");
+//   setTimeout(() => {
+//     console.log(res);
+//   }, 0);
+// });
+
+
+
+// console.log('');
+// console.log('Start');
+
+// Promise.resolve().then(() => {
+//   console.log('First Promise');
+//   setTimeout(() => {
+//     console.log('setTimeout in First Promise');
+//   }, 0);
+// }).then(() => {
+//   console.log('Second Promise');
+// });
+
+// console.log('End');
+
+ 
+// console.log('A');
+
+// setTimeout(() => {
+//   console.log('B');
+//   Promise.resolve().then(() => {
+//     console.log('C');
+//   });
+// }, 0);
+
+// Promise.resolve().then(() => {
+//   console.log('D');
+//   setTimeout(() => {
+//     console.log('E');
+//   }, 0);
+// }).then(() => {
+//   console.log('F');
+// });
+
+// console.log('G');
+
+
+//1 6 3 
+
+
+
+
+// console.log("A");
+
+// setTimeout(() => {
+//   console.log("B");
+//   Promise.resolve().then(() => {
+//     console.log("C");
+//     return Promise.resolve();
+//   }).then(() => {
+//     console.log("D");
+//   });
+// }, 0);
+
+// Promise.resolve().then(() => {
+//   console.log("E");
+//   setTimeout(() => {
+//     console.log("F");
+//   }, 0);
+// }).then(() => {
+//   console.log("G");
+// });
+
+ 
+// const customPromise = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve('Success!'); // Resolving the promise
+//   }, 1000);
+// });
+
+// customPromise.then((result) => console.log(result));
+// // Output: "Success!" after 1 second
+
+
+// Promise.resolve('Immediate Value').then((value) => {
+//   console.log(value);
+// });
+// // Output: Immediate Value  3. What's Happening in Promise.resolve().then()?
+// When you call Promise.resolve(), you're creating a promise that:
+
+// Is already resolved.
+// Can have .then() chained to it.
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,41 @@
+duplicate property names are allowed everywhere, including strict mode. 
+You can also have duplicate property names in classes. The only exception is private properties, which must be unique in the class body.
+you can create an object with these two steps:
+
+Define the object type by writing a constructor function. There is a strong convention, with good reason, to use a capital initial letter.
+Create an instance of the object with new.
+
+
+When a function is called with the new keyword,
+ the function will be used as a constructor. new will 
+ do the following things:
+
+
+about new:
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
+
+
+Array Destructuring using rest operator:
+
+javascript
+Copy
+Edit
+const [first, ...rest] = [1, 2, 3, 4];
+console.log(first); // Output: 1
+console.log(rest);  // Output: [2, 3, 4]
+
+Object Destructuring:
+
+javascript
+Copy
+Edit
+const { name, ...rest } = { name: 'John', age: 25, city: 'New York' };
+console.log(name); // Output: John
+console.log(rest); // Output: { age: 25, city: 'New York' }
+
+function Car(make, model) {
+  return { make, model, isElectric: true }; // Explicitly returning an object
+}
+
+const car2 = new Car('Tesla', 'Model 3');
+console.log(car2); // { make: 'Tesla', model: 'Model 3', isElectric: true }

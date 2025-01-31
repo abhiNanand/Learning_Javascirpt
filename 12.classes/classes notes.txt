@@ -1,0 +1,34 @@
+what is class and object?
+Class: A class is like a blueprint or template for creating objects. It defines the properties (attributes) and behaviors (methods) that the objects created from the class will have. Classes define how the objects should behave, but they don't actually represent a specific instance.
+
+Object: An object is an instance of a class. It is a concrete representation of the class with real values assigned to its properties. When you create an object, you create an instance of the class
+
+
+
+classes create object using new operator.
+
+These correspond to the three key features of classes:
+
+Constructor;
+Instance methods and instance fields;
+Static methods and static fields.
+
+
+class Declarations are not hoisted which means you cannot use a class before it is declared.
+Class expressions
+Similar to functions, class declarations also have their expression counterparts.
+
+js
+Copy to Clipboard
+const MyClass = class {
+  // Class body...
+};
+Class expressions can have names as well. The expression's name is only visible to the class's body.
+
+js
+Copy to Clipboard
+const MyClass = class MyClassLongerName {
+  // Class body. Here MyClass and MyClassLongerName point to the same class.
+};
+new MyClassLongerName(); // ReferenceError: MyClassLongerName is not defined.
+

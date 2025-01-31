@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>callback function</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+   
+// function greet(name, callbackfn)
+// {
+//     console.log("hello ",name);
+//     callbackfn();
+// }
+
+// function SayGoodBye()
+// {
+//     console.log("good bye");
+    
+// }
+
+// greet("Alice", SayGoodBye);
+
+
+
+
+
+
+//get data using callback
+
+// console.log("get data using callback");
+
+// function getData(dataId, getNextData)
+// {
+
+//     setTimeout(()=>{console.log("data:",dataId);
+//                       if(getNextData)
+//                       getNextData();
+//     } , 2*1000);
+
+// }
+
+// //getData(data, callbackfun)
+// getData(1, ()=>{ getData(2), ()=> {getData(3),()=>{getData(4);}}} );
+
+
+console.log("get data using promises");
+
+
+
+function getData(dataId)
+{
+    return new Promise((resolve, reject)=>
+{
+     setTimeout(()=>{console.log("dataId",dataId);resolve("success");},2000);
+               }
+);
+}
+
+//promise chain
+getData(1).then((res)=>{ return getData(2);}).then(()=>{return getData(3)});
+
+
+
+    
+</script>
+</html>

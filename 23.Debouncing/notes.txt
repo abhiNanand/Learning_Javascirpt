@@ -1,0 +1,39 @@
+What is Debouncing in JavaScript?
+
+https://codedamn.com/news/javascript/debouncing-in-javascript
+
+there is a brief delay between entering the search field and seeing the results. Developers use the debounce function to create this delay, which prevents unnecessary queries to the server.
+
+Debouncing is a programming technique that limits the frequency with which a time-consuming (require more calculations) function get called or exected  a function when necessary. 
+
+
+Consider that you are a developer who is making a search bar. You would like to display recommendations only after the user has finished typing, not after each keypress. We use debouncing in JavaScript to enhance the efficiency of a web page.
+
+
+
+How does Debouncing work?
+Debouncing happens by starting a “delay” timer before executing a specific code section. And if for some reason, the identical procedure is repeated, then, instead of creating a queue of two similar events, we halt the previous process and concentrate on the current one’s execution.
+
+
+Writing a Debouncing function in JavaScript
+
+
+function debounceSearch(query) 
+{
+  clearTimeout(timeoutID); // Cancel the previous timer
+
+  // Start a new timer
+  timeoutID = setTimeout(() => {
+    console.log("Searching for:", query); // Only runs after the delay
+  }, 500); // Wait for 500ms
+}
+
+// Simulating typing in a search box
+debounceSearch("h");
+debounceSearch("he");
+debounceSearch("hel");
+debounceSearch("hell");
+debounceSearch("hello");
+
+// Output (after 500ms):
+// Searching for: hello

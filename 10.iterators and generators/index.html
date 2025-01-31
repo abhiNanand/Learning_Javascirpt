@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title> iterators and generators </title>
+</head>
+<body>
+    
+
+
+
+</body>
+
+
+<script>
+const arr = [1, 2, 3];
+const iterator = arr[Symbol.iterator](); // Getting the iterator from the array
+
+
+
+console.log(iterator.next()); // { value: 1, done: false }
+console.log(iterator.next()); // { value: 2, done: false }
+console.log(iterator.next()); // { value: 3, done: false }
+console.log(iterator.next()); // { value: undefined, done: true }
+
+
+//generator
+console.log("generator");
+function* generatorExample()
+{
+
+    yield 1;
+    yield 2;
+    yield 3;
+}
+const gen = generatorExample();
+// console.log(gen);
+// console.log(gen.next());
+// console.log(gen.next());
+// console.log(gen.next());
+// console.log(gen.next());
+
+// index.html:75 {value: 1, done: false}
+// index.html:76 {value: 2, done: false}
+// index.html:77 {value: 3, done: false}
+// index.html:78 {value: undefined, done: true}
+
+
+//example
+console.log("example")
+ for(const itItem of gen)
+ {
+    console.log(itItem);
+ }
+</script>
+
+</html>

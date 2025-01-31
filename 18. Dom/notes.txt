@@ -1,0 +1,393 @@
+DOM - Document Object Model
+
+The DOM is the powerfull tool that allows you to interact with and manupulate
+the elements on a web page.
+
+the document part refer to the webpage we see in browser. Specifically, the HTML Document which handles the structure of the page's content. This includes the text, images, links, and other elements that make up the page.
+
+Object means the element like images, headers, and paragraphs are treated like objects. Each objects has its own properties like id,class,style and methods, you can manupulate the elements.
+
+The model in DOM means it's a representation or copy of the HTMl document as a hirecial tree.This tree includes all the elements. And it captures the parent-child relationships between them.
+
+
+in short document refers to the strucure of the page. object refers to the element of the page and model  means the representation of html document as a hierarchical tree.
+
+At the top of the hierarchy is the Document object. It has only one child – the html element. The html element, also known as the root element, has two children, the head and body elements. And each of them also have their own children elements.
+
+What You Can Do With the DOM
+DOM allows developer to to intract with structure, style and content of the webpage.  The following things we can do with DOM
+->add new elements.
+->change or delete existing elements.
+->change the style and content of the element.
+->add event listener to the elements to make them interactive.
+
+How to Select DOM Elements
+to do anything with dom elements first we had to select dom elements.
+example-
+
+Let's use the following phonebook markup to show how the various DOM selector methods work.
+
+  <h1 id="page-title">Phonebook</h1>
+
+  <p class="family">Marie</p>
+  <p class="family">Jose</p>
+  <p class="work">Anne</p>
+  <p class="work">Joan</p>
+The markup includes a header with an id of page-title and four paragraphs. The first two paragraphs both have a class of family, and the last two have a class of work.
+1. getElementById- used this to select with id attribute.
+    const titleElement= getElementById('page-title');
+    console.log(titleElement);
+
+
+2. getElementsByClassName
+You can use this method to select more than one object. This method takes in the value of a class attribute as an argument and selects all elements in the DOM that has the given class.
+
+const a= document.getElementById("page-title");
+      console.log(a);
+ 
+      const famContacts = document.getElementsByClassName("family")
+      console.log(famContacts);
+
+//output  looks like an array, but it is not. can access the elements using bracket notation .cannot apply array methods like map, filter, and forEach on it.
+console.log(famContacts[0]);
+
+
+But what if you wanted to loop through all the elements in the famContacts HTML collection? You'd first need to convert the HTML collection into an array. Then you could use any of the array methods.
+
+A simple way to create an array from the HTML collection is to use the spread operator, like this:
+
+//converting to arrray and itreate though all the class elements.use spread operator.
+let famContactsArray = [...famContacts];
+famContactsArray.forEach((element)=>console.log(element));
+
+
+//without making array karegne to type error aayega.
+
+
+3.getElementByTagName: select element by using their tag name.
+  For example, getElementByTagName('p');
+
+Node
+getElement id wale me kartey hai baki class wale me ya tag wale me getElements kartey hai
+
+
+4.querySelector
+this method can select any html element in the dom. only return the first element that matches the selector.
+use # to select id.
+use . to select class.
+
+const firstWorkContact = document.querySelector('.work')
+console.log(firstWorkContact)
+<div>
+    <button>First button</button>
+    <button>Second button</button>
+    <button>Third button</button>
+    <button>Fourth button</button>
+</div>
+Assuming you wanted to select the third button, you could use querySelector like the one below. The code uses the CSS nth-child selector to get the third button inside the div.
+
+to select all use QuerySelectorAll
+
+5.querySelectorAll:
+returns all elements that match the selector instead of returning only the first one.
+Note. we can use forEach on it directly. we do not need to convert it to array. to use map, filter and others we need to convert it to array.
+
+
+ How to Change the Content of DOM Elements?
+ after selecting the element with any method, there are several methods we can use to add or update the content.
+
+1. The innerHtml Property:  allows user to read/ update the structure, content and structure of elements.
+<p id="topic">JS array methods</p>
+<p id="first-method">map</p>
+<p id="second-method">filter</p>
+
+
+//read and get the content of any html paragraph using innerHtml.
+   const topicElement = document.querySelector('#topic')
+console.log(topicElement.innerHTML)
+
+
+const topicElement = document.querySelector('#topic');
+console.log(topicElement.innerHTML)
+
+const f = document.querySelectorAll('p');
+//console.log(f.innerHTML);//undefined
+console.log(f[1].innerHTML); //this way is correct
+ 
+
+ //update the contents of topicElement;
+topicElement.innerHTML="My name is Abhisek Anand"; //on webpage paragraph ke jagah My name is Abhishek Anand show hoga.
+
+
+
+With innerHTML, you can change more than just the content. You can also change the HTML structure of the element. For example, if you want to make the word "JavaScript" bold, you could do this:
+
+topicElement.innerHTML="    <b> Javascirpt </b>
+
+
+Security Risks With innerHTML
+Using the innerHTML poses potential security risks. An example is cross-site scripting (XSS) attacks.
+
+If the content you're inserting comes from user input or any untrusted source, be sure to validate and sanitize it before using innerHTML to prevent XSS attacks. You can use a library like DOMPurify to do this.
+Read about these if you have time.
+
+Also, if you are working with plain text content, consider using methods like innerText and textContent.
+
+The innerText and textContent Properties
+Both innerText and textContent ignore HTML tags and treat them as part of a string. You can use both methods to read or update the text of DOM elements.
+
+A key difference between the two is in how they treat the text. Using innerText returns the text as it appears on the screen. And using textContent returns text as it appears in the markup. Let's see an example below.
+
+<p>Key =<span style="display: none;">     ABC123<span></p>
+
+
+What is innerText?
+It gives you the text that is visible to the user.
+It ignores hidden text (text inside elements with display: none, visibility: hidden, etc.).
+When you set innerText, it automatically escapes HTML, so <b> is treated as text and not a tag.
+Example:
+html
+Copy
+Edit
+<div id="test" style="display: none;">Hello <b>World</b></div>
+
+<script>
+  console.log(document.getElementById("test").innerText); // Outputs: "" (because it's hidden)
+  
+  document.getElementById("test").innerText = "<b>New Text</b>";
+  console.log(document.getElementById("test").innerHTML); // Outputs: &lt;b&gt;New Text&lt;/b&gt;
+</script>
+Key Point: If the element is hidden, innerText ignores its content.
+What is textContent?
+It gives you all the text inside the element, regardless of whether it’s hidden or visible.
+It does not care about styles like display: none or visibility: hidden.
+When you set textContent, it doesn’t escape HTML, so tags like <b> are treated as plain text.
+Example:
+html
+Copy
+Edit
+<div id="test" style="display: none;">Hello <b>World</b></div>
+
+<script>
+  console.log(document.getElementById("test").textContent); // Outputs: "Hello World" (includes hidden text)
+
+  document.getElementById("test").textContent = "<b>New Text</b>";
+  console.log(document.getElementById("test").innerHTML); // Outputs: <b>New Text</b> (HTML is not escaped)
+</script>
+
+
+
+Node. keydifference is that innerText ignores hidden text but textContent show hidden text.
+
+
+Hidden text refers to content within an HTML element that is not visible on the page. This can happen when CSS is used to hide the content, either through specific styles or conditions (e.g., hiding elements based on user interaction or screen size).
+
+How to Make Text Hidden in HTML/CSS
+There are several ways to hide text using CSS:
+
+1. Using display: none
+This completely removes the element from the document's layout, and it is not visible at all (including for screen readers).
+html
+Copy
+Edit
+<p style="display: none;">This text is hidden and not part of the page layout.</p>
+The element is hidden and does not take up space on the page. It is as if it doesn't exist in the DOM for layout purposes.
+2. Using visibility: hidden
+The element is still there, but it is invisible. It still takes up space in the layout, just like an invisible element.
+html
+Copy
+Edit
+<p style="visibility: hidden;">This text is hidden but still takes up space.</p>
+
+Why Hidden Text is Important for innerText vs. textContent
+When you use display: none, visibility: hidden, or similar styles, innerText will not include it because it ignores hidden content.
+textContent, on the other hand, will include it because it gets all the text, including from hidden elements.
+
+innerText is slower that innerContent.
+
+=============================================================================
+
+
+How to Work with Attributes of DOM Elements?
+
+<button id="myBtn" type="submit">Click Here</button>
+For this example, the browser will create an HTMLButtonElement object in the DOM. And the object will have properties matching the attributes.
+HTMLButtonElement.id with a value of myBtn.
+HTMLButtonElement.type with a value of submit.
+
+to intract with and manipulate these attributes using javascript we can use methods like getAttribute and setAttribute to directly access the properties.
+
+1. getAttribute method: using this method we can get the value of existing attribute of an element.
+it accepts an argument and returns the value of attribute.
+if attributes does not exist it will return null.
+
+//using getAttribute and set Attribute.
+const imageElement = document.querySelector('img');
+console.log(imageElement.getAttribute('src'));  //netflix_logo.webp
+console.log(imageElement.getAttribute('height'));//100 200 
+
+2.setAttribute method: used to set or change the attribute the element.
+take two argument. first is the name of the attribute you want to change and second is the new value you want to give to attribute.
+console.log("before:",imageElement.getAttribute('alt'));
+imageElement.setAttribute('alt','this is netflix logo');
+console.log("after:",imageElement.getAttribute('alt'));
+
+When you pass an argument to the setAttribute method and that attribute doesn't exit on the element, it will create a new attribute.
+
+
+//creating new attribute.
+//adding border property
+console.log("before:",imageElement.getAttribute('style'));//null
+imageElement.setAttribute('style','order: 2px solid red');
+console.log("after:",imageElement.getAttribute('style'));
+
+=============================================================================
+Remove Attribute Method:
+you can pass the name of the attribute you want to remove as a arguemnt to the method.
+
+imageElement.removeAttribute('style');
+
+The hasAttribute Method
+Another method for working with attributes in the DOM is the hasAttribute method. You can use this method to check whether or not an element has a specific attribute.
+
+The hasAttribute method returns true if the specified attribute exists and returns false if it doesn't.
+=============================================================================
+
+How to Change the Styles on DOM Elements:
+two ways 
+(i) use .style property
+(ii) use classess
+
+Setting Styles With the .style Property
+----------------------------------------
+use this if you want to make changes for a single element. allows to sets directly as inline styles for elements. 
+
+
+const header = document.querySelector('h1');
+header.style.color= 'pink';
+topicElement.style.color= 'blue';
+topicElement.style.backgroundColor='green';
+
+NOTE: Because this is JavaScript, you cannot use the hyphen if the CSS property name includes two or more words. For example, in CSS you would write background-color. But in your JavaScript code, you need to use camel case. So background-color becomes backgroundColor.
+
+You can also delete a style on an element by setting the value of the property to an empty string.
+
+element.style.propertyName = ""
+{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+
+Setting Styles with Classes
+___________________________
+
+make code more maintainable.
+
+The className property represent the class attribute of a DOM element.
+we can get and set the value of class attribute.
+The className also reads or replace the current class.
+const g = document.getElementsByClassName('family');
+console.log(g[0].className);
+//g[0].className='weCanChangeAlso'
+But there is a more flexible property. For example, what if instead of replacing the old class with the new class, you wanted to add another class? That's where the classList property comes in.
+<p class="food">Jollof rice</p>
+jollofParagraph.classList.add('fav', 'tasty')
+
+console.log(jollofParagraph.classList)
+Removing Classes With classList.remove()
+jollofParagraph.classList.remove('tasty')
+
+console.log(jollofParagraph.classList)
+
+Replacing Classes with classList.replace()
+jollofParagraph.classList.replace('fav', 'favorite')
+
+console.log(jollofParagraph.classList)
+The code replaces the class fav with favorite
+
+Check the Presence of a Class with classList.contains()
+const isFavorite = jollofParagraph.classList.contains('favorite')
+const isSoup = jollofParagraph.classList.contains('soup')
+
+console.log("Contains favorite: ", isFavorite)
+console.log("Contains soup: ", isSoup)
+true if it is included in the class list (for example favorite) and false if  
+
+Toggling a Class with the classList.toggle()
+When you use the toggle property, it first checks if the class exists. If it exists, it will remove it. And if it doesn't exist, it will add it.
+
+jollofParagraph.classList.toggle('favorite')
+console.log(jollofParagraph.classList)
+
+jollofParagraph.classList.toggle('favorite')
+console.log(jollofParagraph.classList)
+
+jollofParagraph.classList.toggle('favorite')
+console.log(jollofParagraph.classList)
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+How to traverse the DOM
+________________________
+to traverse the DOM means to move between the different elements/nodes within the html document. 
+But before we get into how to traverse the DOM, you need to understand the difference between nodes and elements.
+Nodes are the building blocks of the DOM. They represents different components in the HTML structure.
+
+Elements are a specific type of node, but not all nodes are elements.
+Other types of content like attributes of elements, text content, and comments within the code are nodes too. But they are not elements.
+
+//read about difference between node and element on free code camp
+
+Selecting a Parent with parentNode vs parentElement.
+___________________________________________________
+When it comes to selecting the parent of a DOM element, you can use either the parentNode or parentElement. Both will get the parent of the element you pass to it.
+
+
+
+const italicizedText = document.getElementById('italics');
+console.log(italicizedText);
+console.log(italicizedText.parentNode);//<div class="container">
+    
+    // <p class="full-text"> <i id ="italics" >Some italicized text </i> </p>
+    // </div>
+    console.log(italicizedText.parentNode.parentNode);//  <div class="container">
+    
+    // <p class="full-text"> <i id ="italics" >Some italicized text </i> </p>
+    // </div>
+
+Selecting Elements with childNodes bs children
+You can select the contents of an element using both the .childNodes and .children properties. But they work differently.
+
+childNodes: returns a NodeList of all the child nodes within the selected elements. It will include elements and non-element nodes like text nodes, comment nodes, and so on.
+
+.children: returns an HTML collection of only the child elements (element nodes) of the selected objects. It will not include any non-element nodes like texts or comments.
+This can be confusing to work with. So, unless you have a good reason not to, you should stick with the .children property.
+
+  // Selecting the First or Last Child/Element
+
+ If you need to select only the first/last child or element, you can use these four properties.
+
+firstChild: Selects only the first child node of the parent element.
+lastChild: Selects only the last child node of the parent element.
+firstElementChild: Selects only the first child element of the parent.
+lastElementChild: Selects only the last child element of the parent.
+
+Selecting a Sibling of Nodes in the DOM
+_______________________________________
+
+nextSibling: Selects the next node within the same parent element.
+nextElementSibling: Selects the next element, and ignores any non-element nodes.
+previousSibling: Selects the previous node within the same parent element.
+previousElementSibling: Selects the previous element, and ignores any non-element nodes.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+some topics left
+https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild
+-not part of dom now.
+
+
+
+
+https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollTo
+Window.scrollTo() scrolls to a particular set of coordinates in the document.
+
+
+https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event
+https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild
+

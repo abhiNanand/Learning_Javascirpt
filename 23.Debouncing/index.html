@@ -1,0 +1,35 @@
+
+
+<script>
+
+let timeoutId;
+
+
+
+
+function debounceSearch(query)
+{
+
+
+    clearTimeout(timeoutId);
+
+   timeoutId =  setTimeout(
+    
+    ()=>
+{
+    console.log("searching for ", query);
+}
+    ,1000);
+
+}
+
+
+
+ 
+debounceSearch("h");
+debounceSearch("he");
+debounceSearch("hel");
+debounceSearch("hell");
+debounceSearch("hello");
+
+</script>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+
+
+</head>
+<body>
+    
+</body>
+
+
+<script>
+
+ const arr = [{task:"1",c:0}];
+ const b =JSON.stringify(arr);
+localStorage.setItem("a",b);
+ 
+
+ const c=JSON.parse(localStorage.getItem("a"));
+
+ console.log(localStorage.getItem("a"));
+ console.log(c)
+</script>
+
+</html>

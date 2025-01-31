@@ -1,0 +1,175 @@
+ JSON is a text only format that follows json syntax rules to send different data types.
+stands for javascirpt object notation.
+
+ Besides that, JSON is compatible with almost every language.
+
+This is possible because JSON is a lightweight format to communicate data between computers. It is easy to understand for all kinds of developers, and you can write or read it with code written in any programming language.
+
+
+JSON Object VS JS Object
+_________________________
+
+The main differences between JSON and JavaScript objects are:  
+
+1. **Syntax**:  
+   - **JSON** is a string format (text-based).  
+   - **JavaScript Object** is an actual object in JS code.  
+
+2. **Keys**:  
+   - **JSON** keys **must** be in **double quotes**:  
+     ```json
+     { "name": "Alice", "age": 25 }
+     ```
+   - **JS Object** keys **don’t need quotes**:  
+     ```js
+     { name: "Alice", age: 25 }
+     ```
+
+3. **Data Types**:  
+   - **JSON** supports only strings, numbers, booleans, arrays, objects, and `null`.  
+   - **JS Objects** can have functions, `undefined`, and symbols too.  
+
+4. **Usage**:  
+   - **JSON** is used for **data exchange** (API responses, files).  
+   - **JS Objects** are used for **programming and logic** in JavaScript.  
+
+### Example:  
+**JSON (String format)**  
+```json
+'{"name": "Alice", "age": 25}'
+```
+
+**JavaScript Object**  
+```js
+{ name: "Alice", age: 25 }
+```
+
+To convert JSON → JS Object:  
+```js
+JSON.parse('{"name": "Alice", "age": 25}');
+```
+
+To convert JS Object → JSON:  
+```js
+JSON.stringify({ name: "Alice", age: 25 });
+```
+
+
+JSON Syntax Rules 
+_________________
+JSON objects are structured to become native JavaScript objects without modifying them, so we need to follow a set of rules to validate that the JSON and JavaScript objects are identical.
+
+
+-data has to be in key-value pair, seperated by colon.
+-data pair had to be seperated by commma. 
+-in datapairs the key need to be unique double quoted string. 
+-the value can be primitive but never a function.
+-object written inside curley brackets.
+-array written inside square bracket.
+
+JSON Functions in JavaScript
+____________________________
+we have two method with which to work with JSON, and they work in a very intuitive way so everyone can learn them quickly .
+
+
+
+(i) Stringify - 
+
+js object ko json me change krta hai
+
+transform javascipt literal object into a json object,
+    __________
+
+this method allows user to transform javascipt literal object into a json object, returning a string according to the value we passed to the funciton.
+
+While working with the stringify method, we need to have in mind a couple of things to avoid errors,
+-if our js object has undefined values, it will replace them with null, and if we have some unsupported datatypes it can also censor them. To avoid this problem, you can use the replace option after the value in the function,but for now, we will not dive deep into those situations.
+
+
+
+const data = {
+
+name: "abhishek",
+age: 22
+
+}
+
+console.log(JSON.stringify(data));
+
+output:
+
+{"name":"abhishek","age":22}
+typeof is string;
+
+
+
+
+2. Parse: The parse method do opposite to stringify. we will give the json object to funciton and it will convert it to a js literal object. 
+
+To work with this method, we will need to be aware of the JSON object we are reading because if we Stringified it with the replacer option, we will need to implement the reviver option, but, again, these cases are very uncommon.
+
+
+const b= JSON.parse(data);
+
+How to access JSON data
+three ways
+i. dot notation - same we like in dot notation
+ii. square brackets - same like object
+iii. object destructuring
+
+
+Working With .json Files 
+.json files are text-based, meaning we can open them with any code editor, but even if it's human readable, reading thousands or millions of entries is not a good idea.  With that in mind, we have two ways to read the files with JavaScript, allowing us to load the JSON object directly from a local file.
+
+How to Load a JSON File in Javascript?
+to use json file we need to choose between require and fetch and decide which is better for our case. 
+
+use require if files locally saved in our 
+if files on internet use fetch.
+
+Using require()
+If you request the file, as you will usually require a module from another JS file, you will be allowed to use all its content as regular JSON objects, parse it, and start working with it.
+const jsonfile= require('./movies.json');
+console.log(jsonFile);
+
+Using Fetch()
+You can also use fetch, similar to making an HTTPS call, but that will make the code asynchronous, which will be useless if you have the file stored locally. However, this comes in very handy if you are in a web-based environment where you can have some delay while requesting the data.
+
+fetch('https://example.com/movies.json')
+.then((response)=>response.json())
+.then((data)=>console.log(data))
+.catch((error)=>console.log(error))
+
+// Specify the API endpoint for user data
+const apiUrl = 'https://api.example.com/users/123';
+
+// Make a GET request using the Fetch API
+fetch(apiUrl)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(userData => {
+    // Process the retrieved user data
+    console.log('User Data:', userData);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+In this example, we define the API endpoint for user data (https://api.example.com/users/123). The fetch function is used to make the GET request, and we handle the response by checking if it's okay using the response.ok property. If the response is okay, we convert it to JSON and process the user data.
+
+
+
+
+
+.json()  - 
+
+in .then(result)
+we do result.json()  - result is the response from the fetch request.
+it convert it to js object. 
+
+
+.stringify  - make json file
+.parse - makes json file to js object
