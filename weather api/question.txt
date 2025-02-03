@@ -1,0 +1,23 @@
+Yes! Here’s a **Weather API**-based question that will test your knowledge of **Promises, Fetch API, Asynchronous functions, and APIs**:  
+
+### **Question:**  
+Create a web app that fetches and displays real-time weather data for any city using the **OpenWeatherMap API** (or any free weather API of your choice).  
+
+#### **Requirements:**  
+1. Create an input field where users can enter a city name.  
+2. When the user clicks the **"Get Weather"** button, fetch the weather details for that city using the OpenWeatherMap API:  
+   - API URL:  
+     ```
+     https://api.openweathermap.org/data/2.5/weather?q=CITY_NAME&appid=YOUR_API_KEY&units=metric
+     ```
+   - Replace `CITY_NAME` with user input and `YOUR_API_KEY` with your OpenWeatherMap API key.  
+3. Display the **temperature, weather description, humidity, and wind speed** on the page.  
+4. Use `async-await` and handle errors using `try-catch` (e.g., if the city is not found).  
+5. Show a **loading message** while fetching data.  
+
+#### **Bonus Challenges:**  
+- Show a weather icon (from the API response).  
+- Change the **background color** based on the weather condition (e.g., blue for clear sky, gray for cloudy).  
+- Add a **"Use My Location"** button to fetch weather data using the **Geolocation API**.  
+
+This question will strengthen your API handling skills and teach you how to deal with real-world API responses. Let me know if you need help getting started! 🚀
