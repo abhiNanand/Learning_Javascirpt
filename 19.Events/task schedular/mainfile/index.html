@@ -58,9 +58,9 @@ Persist Data:
             <label > Task Name:</label>
             <input type="text" id="text" placeholder="enter tasks"> 
             <select id="taskStatus">
-                <option value="showall" id="showall">showall</option>
-                <option value="completed" id="completed">Completed</option>
-                <option value="nocompleted" id="notcompleted">Not completed</option>
+                <option value="all" id="showall">All Task</option>
+                <option value="completed" id="completed">Completed Task</option>
+                <option value="pending" id="notcompleted">Pending Task</option>
             </select>
         </form>
 
@@ -71,7 +71,8 @@ Persist Data:
     <h1 class="heading">Tasks</h1>
     <div class="showTask">
     </div>
-    <script src="todo.js"></script>
+<!--    <script src="todo.js"></script>  -->   
+    <script src="todolocalStorage.js"></script>
 </body>
 
 

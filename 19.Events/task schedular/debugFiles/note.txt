@@ -1,0 +1,21 @@
+
+
+
+
+
+
+
+
+
+issue:
+
+1. complete task ke andher enter task nhi hona chahye.
+2. incomplete task ke andher enter task nhi hona chaheye.
+
+3. 0,1,2  ke jagah kuch enum type ka show karna hai
+4. tick ke jagah button lagana hai
+5. jb complete pr click kre tho complete me chahl jana chaheye.
+6. jb uncomplete pr click kre tho uncomplete me chal jana chaheye
+
+7. complete me delete button show nhi hona chaheye.
+-8. jb task empty ho to empty task ya no task show hona chaheye.
