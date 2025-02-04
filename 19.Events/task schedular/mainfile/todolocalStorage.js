@@ -55,19 +55,18 @@ function addTodo() {
 
 function checkFunction(index, id,taskType) {
 
-    let taskstatus = document.querySelector(`#${id}`);  //if i use ("#id") there will be error. because id will go as string not value.
+    let checkbox = document.querySelector(`#${id}`);  //if i use ("#id") there will be error. because id will go as string not value.
 
-   
-     
-
-    if (taskstatus .getAttribute('value') == 'pending') {
-         
+    if (checkbox.checked == true) {
+      
       todolist[index].c='completed';
-      taskstatus.setAttribute('value','complete');
     }
+    
+     
+ 
     else {
       todolist[index].c='pending';
-      taskstatus.setAttribute('value','pending');
+       
     }
     saveTask();   //updating in localstorage  
  if(taskType != 'all')
@@ -143,7 +142,7 @@ for (let i = 0; i < todolist.length; i++) {
     if(itemsStatus == taskType || taskType == 'all'){
         let k = `<h1> hello </h1>`
     countTask++;
-    newhtml += `<br>`+`k`+ ` <input type="button" value="submit" id="check${i}"  onClick="checkFunction( ${i} ,id,'${taskType}')" ${p}>   ${todolist[i].task}
+    newhtml += `<br> <input type="checkbox"  id="check${i}"  onClick="checkFunction( ${i} ,id,'${taskType}')" ${p}>   ${todolist[i].task}
      <button class='btn-delete' onclick="deleteItems('check${i}',${i},'${taskType}');"> <i class="material-icons">delete</i> </button>
     ` 
 
