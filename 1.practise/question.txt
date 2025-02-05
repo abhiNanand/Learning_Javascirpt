@@ -102,3 +102,50 @@ const obj = new MyObject();
 obj.increment(); // 11 (Arrow function keeps 'this' bound to 'obj')
 const incrementFunc = obj.increment;
 incrementFunc(); // 12 (Arrow function still binds 'this' to 'obj')
+
+
+
+ var i=10;
+ function task()
+ {
+   
+     console.log(i);//10
+ }
+ task();
+
+
+  var i=10;
+ function task()
+ {
+   let i=9;
+     console.log(i);//9
+ }
+ task();
+
+
+   var i=10;
+ function task()
+ {
+   var i=9;
+     console.log(i);//9
+ }
+ task();
+ console.log(i); //10
+
+
+    var i=10;
+ function task()
+ {
+   
+     console.log(i);//undefined       
+     var i=9;
+ }
+ task();
+ console.log(i); //10
+
+ reason:
+ function task() {
+    var i;  // `var i` is hoisted to the top (declared but undefined)
+    console.log(i); // Logs `undefined` (because `i` is declared but not yet assigned)
+    i = 4;  // Now `i` is assigned 4
+}

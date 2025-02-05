@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+
+    function greet() {
+        console.log("Hello, " + this.name);
+    }
+    
+    const user = { name: "John" };
+    
+    greet.call(user); // "Hello, John"
+    // 👉 Here, call(user) makes this refer to user, so this.name becomes "John".
+    //greet.call(); //Hello,
+    
+//     function introduce(greeting, age) {
+//     console.log(greeting + ", my name is " + this.name + " and I am " + age + " years old.");
+// }
+
+// const user = { name: "Bob" };
+
+// introduce.call(user, "Hi", 25);
+
+    
+    </script>
+</body>
+</html>

@@ -16,9 +16,9 @@ fetch
 
 promises ka function karna hai sare topics ka questions karna hia.
 
-call, bind, apply
+ 
 
-json
+ 
 
 operators
 

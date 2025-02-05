@@ -1,0 +1,219 @@
+Call()
+
+-allows to set the value of this inside a function and invoke it immediately.
+
+function greet() {
+    console.log("Hello, " + this.name);
+}
+
+const user = { name: "John" };
+
+greet.call(user); // "Hello, John"
+👉 Here, call(user) makes this refer to user, so this.name becomes "John".
+
+  //greet.call(); //Hello,
+
+ Without call(), this would refer to the global object (window in browsers or undefined in strict mode).
+
+Note: This function is almost identical to apply(), except that the function arguments are passed to call() individually as a list, while for apply() they are combined in one object, typically an array — for example, func.call(this, "eat", "bananas") vs. func.apply(this, ["eat", "bananas"]).
+
+//     function introduce(greeting, age) {
+//     console.log(greeting + ", my name is " + this.name + " and I am " + age + " years old.");
+// }
+
+// const user = { name: "Bob" };
+
+// introduce.call(user, "Hi", 25);
+🎯 When to Use call()?
+✅ When you need to explicitly set this inside a function.
+✅ When you want to pass arguments separately.
+✅ When you borrow methods from other objects.
+
+
+apply()
+-similar to call , apply also set the value of this explicitly and call the function immediately but instead of passing argument indivisually it passes  them as array.
+
+//example 1
+//basic use of apply
+
+function greet()
+{
+  console.log(`hello ${this.name}`);
+}
+
+const person={name:"abhi"};
+
+greet.apply(person);
+
+//difference bettwen call and apply is call require indivisual value but apply require values in aarray
+
+function sum(a,b,c)
+{
+  console.log(a+b+c);
+}
+
+
+
+sum.call(null,1,2,3);
+// sum.apply(null,1,2,3);error
+ sum.apply(null,[1,2,3]); //6
+ //sum.apply([1,2,3]); //error because first argument is requred for the value of this
+ //error because apply expects the first argument to be the this value, followed by an array of arguments.
+
+
+//  4️⃣ Borrowing Methods with apply()
+// You can borrow methods from other objects using apply().
+
+// js
+// Copy code
+// const person1 = {
+//     name: "Eve",
+//     greet: function() {
+//         console.log("Hello, " + this.name);
+//     }
+// };
+
+// const person2 = { name: "David" };
+
+// person1.greet.apply(person2);  // "Hello, David"
+
+
+
+
+
+
+
+
+bind()-
+create a new function with permanently set this value, without immeidately calling it.
+
+returns a new function
+does not invoke function immediately like call() and apply().
+
+the primary purpose of this is to explicitly set this for a function without calling it immediately
+
+ const person = {
+    name: "Alice"
+};
+
+function greet() {
+    console.log("Hello, " + this.name);
+}
+
+const boundGreet = greet.bind(person);  // Creates a new function with `this` bound to `person`
+boundGreet();  // "Hello, Alice"
+
+ 2️⃣ Using bind() with Arguments
+bind() allows you to preset parameters when creating a new function. The arguments you pass to bind() come before the function call.
+
+js
+Copy code
+function introduce(greeting, age) {
+    console.log(greeting + ", my name is " + this.name + " and I am " + age + " years old.");
+}
+
+const user = { name: "Bob" };
+
+const boundIntroduce = introduce.bind(user, "Hi"); // "Hi" is pre-set as the first argument
+boundIntroduce(25);  // "Hi, my name is Bob and I am 25 years old."
+👉 In this case, "Hi" is pre-set as the first argument, and when we call boundIntroduce(25), 25 is passed as the second argument.
+
+🔹 3️⃣ bind() vs call() vs apply()
+The key difference between bind(), call(), and apply() is that:
+
+bind() returns a new function with a fixed this and optionally pre-set arguments, but does not call it immediately.
+call() and apply() immediately call the function with the specified this value. The difference between the two is how they pass arguments (individually for call() and as an array for apply()).
+Example:
+js
+Copy code
+function sum(a, b, c) {
+    return a + b + c;
+}
+
+console.log(sum.call(null, 1, 2, 3));  // 6
+console.log(sum.apply(null, [1, 2, 3]));  // 6
+const boundSum = sum.bind(null, 1, 2);  // Returns a new function
+console.log(boundSum(3));  // 6
+🔹 4️⃣ Borrowing Methods with bind()
+bind() can be used to borrow methods from other objects, similar to call() and apply().
+
+js
+Copy code
+const person1 = {
+    name: "Eve",
+    greet: function() {
+        console.log("Hello, " + this.name);
+    }
+};
+
+const person2 = { name: "David" };
+
+const boundGreet = person1.greet.bind(person2);  // Borrowing greet() method from person1
+boundGreet();  // "Hello, David"
+👉 person2 doesn't have a greet() method, but bind(person2) allows us to call person1.greet() using person2 as this.
+
+🔹 5️⃣ Using bind() for Event Handlers
+In event listeners, this usually refers to the element that triggered the event. To keep this referring to a specific object, use bind().
+
+js
+Copy code
+const user = {
+    name: "Charlie",
+    sayHi: function() {
+        console.log("Hi, " + this.name);
+    }
+};
+
+document.querySelector("button").addEventListener("click", user.sayHi.bind(user));
+👉 Normally, this inside sayHi() would refer to the button, but bind(user) ensures this always refers to user.
+
+🔹 6️⃣ Using bind() with setTimeout()
+In setTimeout(), this is usually lost because it refers to the global object. You can use bind() to retain the correct this.
+
+js
+Copy code
+const obj = {
+    name: "Daniel",
+    greet: function() {
+        console.log("Hello, " + this.name);
+    }
+};
+
+setTimeout(obj.greet.bind(obj), 1000);  // Correct `this` is preserved
+👉 Without bind(), this would refer to the global object (or undefined in strict mode), but bind() ensures that this refers to obj.
+
+🔹 7️⃣ bind() for Partial Application (Currying)
+Partial application is the process of fixing some arguments of a function and leaving the rest to be provided later. bind() is commonly used for this.
+
+js
+Copy code
+function multiply(a, b) {
+    return a * b;
+}
+
+const double = multiply.bind(null, 2);  // Pre-set the first argument to 2
+console.log(double(5));  // 10 (equivalent to multiply(2, 5))
+👉 In this case, double(5) is equivalent to multiply(2, 5), as 2 is pre-set using bind().
+
+🔹 bind() for Functional Programming
+You can use bind() to create new functions that are customized with fixed this and arguments. This is a key feature in functional programming.
+
+js
+Copy code
+function greet(greeting, punctuation) {
+    console.log(greeting + ", " + this.name + punctuation);
+}
+
+const user = { name: "Sara" };
+
+const greetSara = greet.bind(user, "Hello");
+greetSara("!");  // "Hello, Sara!"
+👉 Here, we create a new function greetSara with a pre-set greeting ("Hello"), and when called with greetSara("!"), it outputs the full greeting.
+
+🎯 When to Use bind()?
+✅ When you want to explicitly set this and create a new function.
+✅ When you need partial application (pre-setting some arguments).
+✅ When you’re working with event handlers or delayed execution (like setTimeout or setInterval).
+✅ When you need to borrow methods from other objects.
+
+Would you like further examples or explanations of any specific use cases for bind()? 🚀
