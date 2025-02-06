@@ -164,3 +164,24 @@ const counters = makeCounters();
 counters.increment(); // Logs: 1
 counters.decrement(); // Logs: 0
 counters.increment(); // Logs: 1
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+IIFE 
+
+(function () {} )();
+-===========================================-=-=-=---==-=-=-=-=-=-===-=-=
+
+pure function -  function that always produce same output for same input.
+                  has no side effect. (does not modify external variables, DOM, API calls, etc.)
+
+function add(a, b) {
+  return a + b; // ✅ No external dependency, always returns the same result
+}
+
+console.log(add(2, 3)); // ✅ 5
+console.log(add(2, 3)); // ✅ 5 (Always same result)
+
+
+
+

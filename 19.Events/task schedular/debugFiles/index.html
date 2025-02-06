@@ -12,16 +12,16 @@
 
 
 <script>
-
- const arr = [{task:"1",c:0}];
- const b =JSON.stringify(arr);
-localStorage.setItem("a",b);
  
 
- const c=JSON.parse(localStorage.getItem("a"));
-
- console.log(localStorage.getItem("a"));
- console.log(c)
+ function add(a,b)
+ {
+    console.log(a);
+    if(b)
+    console.log(b);
+ }
+add(6);
+add(4,5);
 </script>
 
 </html>
