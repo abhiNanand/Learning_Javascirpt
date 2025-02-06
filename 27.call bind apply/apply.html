@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+function greet()
+{
+  console.log(`hello ${this.name}`);
+}
+
+const person={name:"abhi"};
+
+greet.apply(person);
+
+//difference bettwen call and apply is call require indivisual value but apply require values in aarray
+
+function sum(a,b,c)
+{
+  console.log(a+b+c);
+}
+
+
+
+sum.call(null,1,2,3);
+// sum.apply(null,1,2,3);error
+ sum.apply(null,[1,2,3]); //6
+ //sum.apply([1,2,3]); //error because first argument is requred for the value of this
+ //error because apply expects the first argument to be the this value, followed by an array of arguments.
+
+
+//  4️⃣ Borrowing Methods with apply()
+// You can borrow methods from other objects using apply().
+
+// js
+// Copy code
+// const person1 = {
+//     name: "Eve",
+//     greet: function() {
+//         console.log("Hello, " + this.name);
+//     }
+// };
+
+// const person2 = { name: "David" };
+
+// person1.greet.apply(person2);  // "Hello, David"
+
+    </script>
+</body>
+</html>

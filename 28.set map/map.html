@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+const map1= new Map();
+
+map1.set('a',1);
+map1.set('b',2);
+map1.set('c',3);
+
+console.log(map1.get('a'));
+
+//rewrite the values of a key
+map1.set('a',5);
+console.log(map1.get('a'));
+
+map1.delete('b');
+console.log(map1.get('b'));
+
+console.log(map1.size);
+
+map1.set('p',6);
+ 
+console.log(map1.delete('q'));
+
+console.log(map1);
+
+
+const myMap2 = new Map([
+  ["name", "Alice"],
+  [1, "One"],
+  [true, "Yes"],
+]);
+    </script>
+
+
+</body>
+</html>

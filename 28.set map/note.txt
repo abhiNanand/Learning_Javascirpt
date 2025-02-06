@@ -1,0 +1,45 @@
+Map : The Map object holds key-value pairs and remembers the original insertion order of the keys. Any value (both objects and primitive values) may be used as either a key or a value.
+
+A key in the Map may only occur once.
+ 
+
+1. new Map()
+2. .set('key',value)
+3. .delete('key');   returns true or false.
+4. .get('key');
+5. .has
+
+const map1= new Map();
+
+map1.set('a',1);
+map1.set('b',2);
+map1.set('c',3);
+
+console.log(map1.get('a'));
+
+//rewrite the values of a key
+map1.set('a',5);
+console.log(map1.get('a'));
+
+map1.delete('b');
+console.log(map1.get('b'));
+
+console.log(map1.size);
+
+map1.set('p',6);
+
+=========================================================================
+
+
+Set()
+stores valeus of anytype
+collection of values.
+stores unique values.
+iterable through for of loop. 
+
+1. new Set()
+2. .add(value)
+3. .has(value)
+4. .delete(value)
+5.  .clear()
+6. .size
