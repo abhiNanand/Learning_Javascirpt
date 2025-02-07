@@ -1,1 +1,10 @@
 updating github repo though vs code;
+
+git status
+git add .
+git commit -m "update project files"
+git push origin main  # Or 'master' depending on your branch
+
+
+Pull Latest Changes (If Needed)
+git pull origin main
