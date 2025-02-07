@@ -8,7 +8,7 @@ function saveTask() {
 
 //getting task from local storage
 //add task when pressed enter.
-const clickEnter = document.querySelector('#text');
+const clickEnter:string = document.querySelector('#text');
 //adding event listener to enter key
 clickEnter.addEventListener('keypress', function (event) {
   if (event.key === 'Enter') {
@@ -20,7 +20,7 @@ clickEnter.addEventListener('keypress', function (event) {
 
 //function to add task
 function addTodo() {
-  const input = document.querySelector('#text');
+  const input:string = document.querySelector('#text');
   const itemList = input.value;
   if (itemList.trim() == '') {      //trim removes white space
     alert('Task cannot be empty');

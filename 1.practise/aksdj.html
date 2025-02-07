@@ -11,41 +11,25 @@
     </style>
 </head>
 <body>
-    <div class="fir container"></div>
-    <button onclick="addParagraph()">Add Paragraph</button>
-    <button onclick="addHeading()">Add Heading</button>
-    <button onclick="addDiv()">Add Div</button>
-    <button onclick="removeLast()">Remove Last Element</button>
+    
 
     <script>
-        const container = document.querySelector(".fir");
 
-        function addParagraph() {
-            let p = document.createElement("p");
-            p.textContent = "This is a dynamically added paragraph.";
-            container.appendChild(p);
-        }
 
-        function addHeading() {
-            let h = document.createElement("h2");
-            h.textContent = "Dynamically Added Heading";
-            container.appendChild(h);
-        }
-
-        function addDiv() {
-            let div = document.createElement("div");
-            div.textContent = "This is a new div";
-            div.style.border = "1px solid blue";
-            div.style.padding = "10px";
-            div.style.margin = "5px 0";
-            container.appendChild(div);
-        }
-
-        function removeLast() {
-            if (container.lastChild) {
-                container.removeChild(container.lastChild);
-            }
-        }
+ const add = function ()
+ {
+    let counter=0;
+    return function()
+    {
+        counter=counter+1;
+        console.log(counter);
+        return counter;
+    }
+ }
+ let a=add();
+  a();
+  a();
+  a();
     </script>
 </body>
 </html>

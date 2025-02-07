@@ -50,13 +50,33 @@ taskStatus.addEventListener("change", function () {
 //function to delete task
 function deleteItems(id, todo_list_index, taskType) {
     var checkbox = document.querySelector("#".concat(id));
-    // if (checkbox.checked != true)
     todolist.splice(todo_list_index, 1);
     saveTask();
     showTask(taskType);
 }
+//edit task
+function editTask(id, index) {
+    var textfield = document.querySelector("#".concat(id));
+    var prevValue = textfield.value;
+    textfield.disabled = false;
+    textfield.addEventListener('keypress', function (event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            textfield.disabled = true;
+            if (textfield.value.trim() == '') {
+                textfield.value = prevValue;
+            }
+            else {
+                todolist[index].task = textfield.value.trim();
+                textfield.setAttribute("value", textfield.value.trim());
+                textfield.value = textfield.value.trim();
+                saveTask();
+            }
+        }
+    });
+}
 //showing function on page
-function showTask(taskType) {
+function showTask(taskType, edit) {
     var countTask = 0;
     var newhtml = '';
     var inputfiled = document.querySelector('#text');
@@ -80,11 +100,10 @@ function showTask(taskType) {
         if (itemsStatus == taskType || taskType == 'all') {
             var k = "<h1> hello </h1>";
             countTask++;
-            newhtml += "<br> <input type=\"checkbox\"  id=\"check".concat(i, "\"  onClick=\"checkFunction( ").concat(i, " ,id,'").concat(taskType, "')\" ").concat(p, ">   ").concat(todolist[i].task, "\n     <button class='btn-delete' onclick=\"deleteItems('check").concat(i, "',").concat(i, ",'").concat(taskType, "');\"> <i class=\"material-icons\">delete</i> </button>\n    ");
+            newhtml += "<br> <input type=\"checkbox\"  id=\"check".concat(i, "\"  onclick=\"checkFunction( ").concat(i, " ,id,'").concat(taskType, "')\" ").concat(p, "> \n\n      <input type=\"text\"  id=\"tasks").concat(i, "\"  value=\"").concat(todolist[i].task, "\" disabled \n      > \n      \n\n      <button id=\"editTask\" onclick=\"editTask('tasks").concat(i, "',").concat(i, ")\"> Edit </button>\n     <button class='btn-delete' onclick=\"deleteItems('check").concat(i, "',").concat(i, ",'").concat(taskType, "');\"> delete </button>\n    ");
         }
     }
     if (countTask == 0) {
-        console.log('a');
         newhtml = "<h1> no task available </h1>";
     }
     show.innerHTML = newhtml;

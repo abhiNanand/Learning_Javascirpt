@@ -69,7 +69,6 @@ function editTask(id,index)
   let prevValue=textfield.value;
   textfield.disabled=false;
 
-
 textfield.addEventListener('keypress', function (event) {
   if (event.key === 'Enter') {
     event.preventDefault();
@@ -78,7 +77,6 @@ textfield.addEventListener('keypress', function (event) {
     if(textfield.value.trim()=='')
     {
       textfield.value=prevValue;
-    
     }
      
     else
@@ -87,9 +85,7 @@ textfield.addEventListener('keypress', function (event) {
     textfield.setAttribute("value",textfield.value.trim());
     textfield.value=textfield.value.trim();   
     saveTask();
-   }
-
-     
+   } 
   }
 }
 );

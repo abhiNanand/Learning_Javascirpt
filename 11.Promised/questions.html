@@ -33,6 +33,90 @@ new Promise(function (resolve, reject) {
     console.log(res);
   }, 0);
 });
+
+Here’s a tricky **async/await** output-based question:  
+
+// ### **Question:**  
+// What will be the output of the following JavaScript code?  
+
+// ```javascript
+// async function foo() {
+//     console.log("A");
+//     await bar();
+//     console.log("B");
+// }
+
+// async function bar() {
+//     console.log("C");
+// }
+
+// console.log("D");
+// foo();
+// console.log("E");
+// ```
+
+// ### **Options:**  
+// A) D A C B E  
+// B) A C D B E  
+// C) D A C E B  
+// D) D A E C B  
+
+// ---
+
+// ### **Answer:**  
+// ✅ **Correct Option: C) `D A C E B`**  
+
+// ### **Explanation:**  
+// 1. **Synchronous Execution:**  
+//    - `"D"` is logged first because `console.log("D")` is outside any async function and runs synchronously.  
+//    - `foo()` is called next.  
+
+// 2. **Inside `foo()`:**  
+//    - `"A"` is logged first.  
+//    - `await bar()` is encountered.  
+
+// 3. **Inside `bar()`:**  
+//    - `"C"` is logged because `bar()` is an **async function** but does **not** have `await`, so it runs **synchronously**.  
+
+// 4. **Back to `foo()`:**  
+//    - After `await bar()`, `foo()` is **paused**, and control returns to the main thread.  
+
+// 5. **Synchronous Code Resumes:**  
+//    - `"E"` is logged because execution continues outside the async function while `foo()` is paused.  
+
+// 6. **Resuming `foo()` After `await`:**  
+//    - `"B"` is logged after the **main thread** finishes execution.  
+
+// ### **Final Execution Order:**  
+// 🔹 `"D"` → `"A"` → `"C"` → `"E"` → `"B"`  
+
+// ---
+
+// Would you like a more complex question with `setTimeout` or `Promise`? 🚀
+
+// async function test() {
+//     console.log(1);
+//     await Promise.resolve(console.log(2));
+//     console.log(3);
+// }
+
+// console.log(4);
+// test();
+// console.log(5);
+
+// async function test() {
+//     console.log("A");
+//     setTimeout(() => console.log("B"), 1000);
+//     await Promise.resolve();
+//     console.log("C");
+// }
+
+// console.log("D");
+// test();
+// console.log("E");
+
+
+
 </script>
 
 </html>
