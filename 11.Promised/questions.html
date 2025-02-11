@@ -12,29 +12,29 @@
 
 <script>
     
-    console.log("begins");
+//     console.log("begins");
 
-setTimeout(() => {
-  console.log("setTimeout 1");
-  Promise.resolve().then(() => {
-    console.log("promise 1");
-  });
-}, 0);
+// setTimeout(() => {
+//   console.log("setTimeout 1");
+//   Promise.resolve().then(() => {
+//     console.log("promise 1");
+//   });
+// }, 0);
 
-new Promise(function (resolve, reject) {
-  console.log("promise 2");
-  setTimeout(function () {
-    console.log("setTimeout 2");
-    resolve("resolve 1");
-  }, 0);
-}).then((res) => {
-  console.log("dot then 1");
-  setTimeout(() => {
-    console.log(res);
-  }, 0);
-});
+// new Promise(function (resolve, reject) {
+//   console.log("promise 2");
+//   setTimeout(function () {
+//     console.log("setTimeout 2");
+//     resolve("resolve 1");
+//   }, 0);
+// }).then((res) => {
+//   console.log("dot then 1");
+//   setTimeout(() => {
+//     console.log(res);
+//   }, 0);
+// });
 
-Here’s a tricky **async/await** output-based question:  
+// Here’s a tricky **async/await** output-based question:  
 
 // ### **Question:**  
 // What will be the output of the following JavaScript code?  
@@ -42,28 +42,18 @@ Here’s a tricky **async/await** output-based question:
 // ```javascript
 // async function foo() {
 //     console.log("A");
-//     await bar();
+//   console.log( await bar());
 //     console.log("B");
 // }
 
 // async function bar() {
-//     console.log("C");
+//    return Promise.resolve("done");
 // }
 
 // console.log("D");
 // foo();
 // console.log("E");
-// ```
-
-// ### **Options:**  
-// A) D A C B E  
-// B) A C D B E  
-// C) D A C E B  
-// D) D A E C B  
-
-// ---
-
-// ### **Answer:**  
+ 
 // ✅ **Correct Option: C) `D A C E B`**  
 
 // ### **Explanation:**  
@@ -104,16 +94,16 @@ Here’s a tricky **async/await** output-based question:
 // test();
 // console.log(5);
 
-// async function test() {
-//     console.log("A");
-//     setTimeout(() => console.log("B"), 1000);
-//     await Promise.resolve();
-//     console.log("C");
-// }
+async function test() {
+    console.log("A");
+    setTimeout(() => console.log("B"), 1000);
+    await Promise.resolve();
+    console.log("C");
+}
 
-// console.log("D");
-// test();
-// console.log("E");
+console.log("D");
+test();
+console.log("E");
 
 
 

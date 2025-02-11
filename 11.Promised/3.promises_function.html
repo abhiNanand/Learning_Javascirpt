@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+  <title>Document</title>
+
+  
+</head>
+<body>
+  
+
+
+  <script>
+
+//Promise.all()- takes array of promises as input and return a single promise.  It resolves when all promises are resolved or rejects as soon as one promise fails.
+
+// const promise1 = Promise.resolve(3);
+// const promise2 = 10;
+// const promise3 = new Promise((resolve, reject) => {
+//   setTimeout(resolve, 100, 'foo');
+// });
+
+// Promise.all([promise1,promise2,promise3]).then((res )=>{
+//   console.log(res);
+// })
+//// Expected output: Array [3, 42, "foo"]
+
+
+// const promise1 = new Promise((resolve) =>
+//   setTimeout(() => resolve("Success 1"), 1000)
+// );
+// const promise2 = new Promise((_, reject) =>
+//   setTimeout(() => reject("Error in promise 2"), 1500)
+// );
+// const promise3 = new Promise((resolve) =>
+//   setTimeout(() => resolve("Success 3"), 2000)
+// );
+
+// Promise.all([promise1, promise2, promise3])
+//   .then((results) => console.log(results)) // Won't execute
+//   .catch((error) => console.error("Promise rejected:", error)); 
+  // Output after 1.5s: "Promise rejected: Error in promise 2"
+
+  // One rejection causes the whole operation to fail.
+
+
+
+  //2. Promise.allSettled()- takes input as an array of promises. wait for all of them to settle(either resolve or reject). Unlike Promise.all(), it never rejects, meaning it provides results for every promise, whether successful or failed.
+
+//   const promise1 = new Promise((resolve) =>
+//   setTimeout(() => resolve("✅ Success 1"), 1000)
+// );
+// const promise2 = new Promise((_, reject) =>
+//   setTimeout(() => reject("❌ Error in promise 2"), 1500)
+// );
+// const promise3 = new Promise((resolve) =>
+//   setTimeout(() => resolve("✅ Success 3"), 2000)
+// );
+
+// Promise.allSettled([promise1, promise2, promise3]).then((results) => {
+//   console.log(results);
+// });
+
+// //output
+// [
+//   { status: 'fulfilled', value: '✅ Success 1' },
+//   { status: 'rejected', reason: '❌ Error in promise 2' },
+//   { status: 'fulfilled', value: '✅ Success 3' }
+// ]
+
+// // Each promise runs independently, and errors do not stop execution.
+// ✅////Provides status (fulfilled or rejected) along with value or reason.
+
+// 3.Promise.any()- Promise.any() takes an array of promises and returns the result of the first successfully resolved promise. If all promises fail, it throws an AggregateError with all rejection reasons.
+
+// const promise1 = new Promise((_, reject) =>
+//   setTimeout(() => reject("❌ Failed 1"), 1000)
+// );
+// const promise2 = new Promise((resolve) =>
+//   setTimeout(() => resolve("✅ Success 2"), 1500)
+// );
+// const promise3 = new Promise((resolve) =>
+//   setTimeout(() => resolve("✅ Success 3"), 2000)
+// );
+
+// Promise.any([promise1, promise2, promise3])
+//   .then((value) => console.log(value)) // "✅ Success 2" (first resolved)
+//   .catch((error) => console.error(error));
+
+//   const promise1 = new Promise((_, reject) =>
+//   setTimeout(() => reject("❌ Failed 1"), 1000)
+// );
+// const promise2 = new Promise((_, reject) =>
+//   setTimeout(() => reject("❌ Failed 2"), 1500)
+// );
+// const promise3 = new Promise((_, reject) =>
+//   setTimeout(() => reject("❌ Failed 3"), 2000)
+// );
+
+// Promise.any([promise1, promise2, promise3])
+//   .then((value) => console.log(value))
+//   .catch((error) => console.error("All promises failed:", error.errors));
+// All promises failed: [ '❌ Failed 1', '❌ Failed 2', '❌ Failed 3' ]
+
+//✅ error.errors contains all failure messages.
+// ✅ Unlike Promise.all(), this does not fail fast—it waits for all rejections before throwing the error.
+
+
+// 4.Promise.race()-Promise.race() takes an array of promises and returns the result of the first promise that settles (resolves or rejects). It does not wait for other promises.
+
+// const promise1 = new Promise((resolve) =>
+//   setTimeout(() => resolve("✅ Success 1"), 1000)
+// );
+// const promise2 = new Promise((resolve) =>
+//   setTimeout(() => resolve("✅ Success 2"), 2000)
+// );
+// const promise3 = new Promise((_, reject) =>
+//   setTimeout(() => reject("❌ Failed 3"), 1500)
+// );
+
+// Promise.race([promise1, promise2, promise3])
+//   .then((value) => console.log("Winner:", value))
+//   .catch((error) => console.error("Error:", error));
+
+// 5.Promise.reject()- return a promise that is immediately rejected
+
+
+
+// 6.Promise.try()-
+// 7.Promise.withResolvers()-
+
+//8. .finally-Runs whether the promise is fulfilled or rejected
+// function fetchData() {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve("✅ Data fetched successfully!");
+//       // reject("❌ Failed to fetch data!");
+//     }, 1000);
+//   });
+// }
+
+// fetchData()
+//   .then((data) => console.log(data))
+//   .catch((error) => console.error(error))
+//   .finally(() => console.log("🧹 Cleanup: Closing connection..."));
+
+  </script>
+
+</body>
+</html>

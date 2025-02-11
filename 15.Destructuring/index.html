@@ -14,7 +14,7 @@
 
 <script>
 
-const arr=[1,2,3,4];
+// const arr=[1,2,3,4];
 
 // //basics destructuring
 
@@ -64,8 +64,8 @@ const arr=[1,2,3,4];
 
 //}
 
-let x=10;
-let y=20;
+// let x=10;
+// let y=20;
 
 //swapping using destructuring
 
@@ -196,7 +196,27 @@ let y=20;
 // const arr = [1, 2];
 // const [a, b, c = 10] = arr;
 // console.log(a, b, c);  1 2 10
+ 
 
+// This is equivalent to:
+//   const numbers[0] = obj.a;
+//   const numbers[1] = obj.b;
+// Which definitely is not valid.
+
+
+// const [a = 1] = []; // a is 1
+// const { b = 2 } = { b: undefined }; // b is 2
+// const { c = 2 } = { c: null }; // c is null
+// //If a property exists but holds the value null, the default value is not applied.
+
+
+// const { b = console.log("hey") } = { b:2  };
+// Does not log anything, because `b` is defined and there's no need
+// to evaluate the default value.
+// const [a, b, ...{ length }] = [1, 2, 3];
+// console.log(a, b, length); // 1 2 1
+
+let obj={a:1};
 
 </script>
 </html>

@@ -135,6 +135,31 @@
 // console.log(result);
 // console.log(result.toString(2));  
 
+// optional chaining operator ?.   object ka variable ya function access karta hai agar vo exists nhi krta tho error dene ke jagah undefined deta hai
+// Syntax
+// object?.property
+// object?.[expression]
+// object?.method?.()
+// let user = {
+//   name: "John",
+//   address: {
+//     city: "New York"
+//   }
+// };
+
+// console.log(user?.address?.city);  // Output: "New York"
+// console.log(user?.address?.pincode);  // Output: undefined
+// console.log(user?.contact?.phone);  // Output: undefined (doesn't throw an error)
+// let users = [{ name: "Alice" }, { name: "Bob" }];
+
+// console.log(users?.[1]?.name);  // Output: "Bob"
+// console.log(users?.[5]?.name);  // Output: undefined (doesn't throw an error)
+// let person = {
+//   greet: () => "Hello!"
+// };
+
+// console.log(person?.greet?.());  // Output: "Hello!"
+// console.log(person?.sayBye?.());  // Output: undefined (doesn't throw an error)
 
 
 

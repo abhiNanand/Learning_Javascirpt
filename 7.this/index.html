@@ -1,33 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    
-    <title>this and arrow</title>
+<head>    
+<title>this and arrow</title>
 </head>
 <body>
-    
 </body>
-
 <script>
-
-console.log("this in arrow function");
 
 const person={
     name: "jhon",
-    greet:()=>{
-        console.log(`1,this ${this.name}`);  //undefined
+     greet1: function ()
+    {
+       // console.log(name); //name is not defined
+    
+        console.log(1,this.name);
+        console.log(2,this);  //person object show karega
+      
+     },
+     
+    greet2:()=>{
+        let roll=5;
+        let name=5;
+       
+        console.log(3,this.name);
+        console.log(4,this);          //  {}
+        console.log(5,typeof this)  //object
     }
 };
-
-person.greet();
-
-console.log("2, without this function");
+ person.greet1();
+ person.greet2();
+//this in arrow function refer to window. and window dont have any name. check by window.name. 
+//to print this in arrow functon delclare globally this.name="punjab"; or inside arrow function we can also do this.
+//agar globally let name = "punjab" kr de tho v work nhi karega.let name = "punjab"; // Global variable
+// Key Reasons:
+// In JavaScript, global let variables are NOT added to window.
+// If you check:
+// console.log(window.name);
+// It will not print "punjab" because let does NOT attach variables to window.
+// However, var name = "punjab"; would attach name to window.
+// Since greet2 takes this from the global scope (window in browsers, {} in Node.js), it cannot find nam
+// console.log("4, without this function");
 
 const person1 =
 {
     name:"abhishekanand",
     greet: function()
     {
+        console.log(name);
         console.log(this.name);
     }
 };
@@ -51,5 +70,30 @@ function Person(name) {
 
 const john = new Person("John");
 john.greet(); // Output: John
+
+
+
+
+
+
+
+
+
+
+
+
+// Example 2: Arrow Function Inside a Method
+const persoon = {
+    name: "John",
+    greet: function () {
+        const innerArrow = () => {
+            console.log("innerArrow:", this.name);
+            console.log(this);
+        };
+        innerArrow();
+    }
+};
+
+persoon.greet(); // innerArrow: John ✅
 </script>
 </html>
