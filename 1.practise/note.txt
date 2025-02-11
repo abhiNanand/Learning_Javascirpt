@@ -31,3 +31,4 @@ Placing the <script> tag inside <body> is very common for inline JavaScript or d
    in array if we use any function we starts with arrayname.function(), but in object we do Object.function(objectname); why this difference is there any reason .
 
  
+ 

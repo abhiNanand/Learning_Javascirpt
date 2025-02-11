@@ -284,3 +284,21 @@ greet();  // 'Bob' (Arrow function still binds 'this' to 'obj')
 
 </script>
 </html>
+
+
+
+let a = {
+name:1,
+
+greet: function()
+{
+    setTimeout(
+        ()=>   //iskey jagah normal function rahta tho  undefined ata.
+        {
+            console.log(this.name);//1
+        }
+        ,1000);
+},
+}
+
+a.greet();
