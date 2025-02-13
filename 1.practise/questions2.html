@@ -29,6 +29,124 @@ function getData(data)
 let promise= getData(6);
 promise.then(  (res) =>  console.log(res) );
 
+
+//test qeustion
+function greet()
+{
+    
+    console.log(`hello ,${this.name}`)
+}
+
+const obj1={name:"Alice"};
+const obj2={name:"Bob"};
+
+const a =greet.bind(obj1);
+ a.call(obj2);
+
+//hello Alice
+
+
+ Promise.resolve()
+.then(()=>console.log("a"))
+.then(()=>console.log("b"))
+.then(()=>console.log("c"))
+
+
+Promise.resolve()
+.then(()=>console.log("a1"))
+.then(()=>console.log("b1"))
+.then(()=>console.log("c1"))
+
+//a a1 b b1 c c1
+
+
+
+//see 
+why error Promise.resolve()
+.then(()=>{console.log("a");
+    reject("a");
+})
+.then(()=>console.log("b"))
+.then(()=>console.log("c"))
+
+
+Promise.resolve()
+.then(()=>console.log("a1"))
+.then(()=>console.log("b1"))
+.then(()=>console.log("c1"))
+ChatGPT said:
+Your code will throw an error because reject("a") is not a valid function in this context. Let's analyze the issue and how to fix it.
+
+Issue in Your Code
+js
+Copy
+Edit
+Promise.resolve()
+.then(() => {
+    console.log("a");
+    reject("a");  // ❌ Error: reject is not defined
+})
+.then(() => console.log("b"))
+.then(() => console.log("c"));
+
+Promise.resolve()
+.then(() => console.log("a1"))
+.then(() => console.log("b1"))
+.then(() => console.log("c1"));
+Why Does It Cause an Error?
+reject("a") is not defined inside .then().
+You can only reject a promise inside the Promise constructor.
+Unlike resolve(), reject() is not globally available.
+How to Fix It?
+If you want to reject the promise inside .then(), you must throw an error instead:
+
+js
+Copy
+Edit
+Promise.resolve()
+.then(() => {
+    console.log("a");
+    throw "a";  // ✅ Proper way to reject in `.then()`
+})
+.catch(err => console.log("Caught:", err))  // ✅ Handle rejection
+.then(() => console.log("b"))
+.then(() => console.log("c"));
+
+Promise.resolve()
+.then(() => console.log("a1"))
+.then(() => console.log("b1"))
+.then(() => console.log("c1"));
+Fixed Output
+less
+Copy
+Edit
+a
+Caught: a
+b
+c
+a1
+b1
+c1
+Alternative Fix (Using Promise.reject())
+If you want to reject explicitly, return Promise.reject():
+
+js
+Copy
+Edit
+Promise.resolve()
+.then(() => {
+    console.log("a");
+    return Promise.reject("a");  // ✅ Correct way to reject
+})
+.catch(err => console.log("Caught:", err))  // ✅ Handle rejection
+.then(() => console.log("b"))
+.then(() => console.log("c"));
+
+Promise.resolve()
+.then(() => console.log("a1"))
+.then(() => console.log("b1"))
+.then(() => console.log("c1"));
+
 </script>
 
 </html>

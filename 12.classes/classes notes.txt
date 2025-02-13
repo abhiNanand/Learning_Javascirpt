@@ -32,3 +32,54 @@ const MyClass = class MyClassLongerName {
 };
 new MyClassLongerName(); // ReferenceError: MyClassLongerName is not defined.
 
+====================================================================
+
+class Emp
+{
+  constructor(name,age)
+  {
+    this.name=name;
+    this.age=age;
+  }
+
+fullname() {   
+    return this.name + this.age;
+
+
+}}
+
+const emp = new Emp("aman",3);
+console.log(emp.name);
+console.log(emp.age);
+console.log(emp.fullname());
+======================================================================
+
+The extends keyword in JavaScript is used for class inheritance, allowing one class to inherit properties and methods from another.
+
+class Parent {
+  constructor(name) {
+    this.name = name;
+  }
+
+  greet() {
+    return `Hello, ${this.name}`;
+  }
+}
+
+class Child extends Parent {  // ✅ Child class inherits from Parent
+  constructor(name, age) {
+    super(name); // ✅ Calls Parent's constructor
+    this.age = age;
+  }
+
+  info() {
+    return `${this.name} is ${this.age} years old.`;
+  }
+}
+
+const obj = new Child("Aman", 22);
+console.log(obj.greet()); // ✅ Inherited method → "Hello, Aman"
+console.log(obj.info());  // ✅ Child class method → "Aman is 22 years old"
+
+=============================================================================
+
